@@ -195,8 +195,16 @@ jobs:
 
           # Debug: Show what's in keychain after import
           echo ""
-          echo "=== Keychain contents after import ==="
+          echo "=== Certificates in keychain ==="
           security find-certificate -a "$KEYCHAIN_PATH" | grep -E "^keychain:|alis|labl" || echo "No certificates found"
+
+          echo ""
+          echo "=== Private keys in keychain ==="
+          security find-key -a "$KEYCHAIN_PATH" 2>&1 | head -30 || echo "No keys found or error"
+
+          echo ""
+          echo "=== Checking P12 for private key ==="
+          openssl pkcs12 -in "$RUNNER_TEMP/certificate.p12" -passin pass:"$P12_PASSWORD" -nocerts -nodes 2>&1 | grep -c "PRIVATE KEY" || echo "0"
 
           # Set partition list (allow codesign access without prompt)
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH" 2>&1 || {

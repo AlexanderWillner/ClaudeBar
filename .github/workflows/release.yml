@@ -126,11 +126,25 @@ jobs:
             fi
           done
 
+          # Copy app icon
+          if [ -f "Sources/App/AppIcon.icns" ]; then
+            cp "Sources/App/AppIcon.icns" "$RESOURCES/"
+            echo "Copied AppIcon.icns to Resources"
+          fi
+
+          # Copy resource bundle for Bundle.module access (images, etc.)
+          RESOURCE_BUNDLE=$(swift build -c release --arch arm64 --show-bin-path)/ClaudeBar_ClaudeBar.bundle
+          if [ -d "$RESOURCE_BUNDLE" ]; then
+            cp -R "$RESOURCE_BUNDLE" "$RESOURCES/"
+            echo "Copied resource bundle to Resources"
+          fi
+
           # Create PkgInfo
           echo "APPL????" > "$CONTENTS/PkgInfo"
 
           echo "Created app bundle at $APP_BUNDLE"
           ls -la "$CONTENTS"
+          ls -la "$RESOURCES"
 
       - name: Import Code Signing Certificate
         env:

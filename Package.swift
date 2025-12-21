@@ -58,6 +58,7 @@ let package = Package(
             exclude: [
                 "Info.plist",
                 "entitlements.plist",
+                "AppIcon.icns",
             ],
             resources: [
                 .process("Assets.xcassets"),

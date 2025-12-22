@@ -32,8 +32,15 @@ internal struct GeminiAPIProbe {
         }
 
         // Discover the Gemini project ID for accurate quota data
+        // Uses retry logic to handle cold-start network delays
         let repository = GeminiProjectRepository(networkClient: networkClient, timeout: timeout)
         let projectId = await repository.fetchBestProject(accessToken: accessToken)?.projectId
+
+        if projectId == nil {
+            logger.warning("Gemini: Project discovery failed, proceeding without project ID (quota may be less accurate)")
+        } else {
+            logger.debug("Gemini: Using project ID \(projectId ?? "")")
+        }
 
         guard let url = URL(string: Self.quotaEndpoint) else {
             throw ProbeError.executionFailed("Invalid endpoint URL")

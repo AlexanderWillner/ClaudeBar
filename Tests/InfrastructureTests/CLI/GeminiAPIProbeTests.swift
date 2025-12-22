@@ -38,20 +38,21 @@ struct GeminiAPIProbeTests {
         let probe = GeminiAPIProbe(
             homeDirectory: homeDir.path,
             timeout: 1.0,
-            networkClient: mockService
+            networkClient: mockService,
+            maxRetries: 1
         )
-        
+
         await #expect(throws: ProbeError.authenticationRequired) {
             try await probe.probe()
         }
     }
-    
+
     @Test
     func `probe discovers project id and fetches quota`() async throws {
         let homeDir = try makeTemporaryHomeDirectory()
         try createCredentialsFile(in: homeDir)
         let mockService = MockNetworkClient()
-        
+
         // Setup mocks
         let projectsResponse = """
         {
@@ -60,7 +61,7 @@ struct GeminiAPIProbeTests {
             ]
         }
         """.data(using: .utf8)!
-        
+
         let quotaResponse = """
         {
             "buckets": [
@@ -72,7 +73,7 @@ struct GeminiAPIProbeTests {
             ]
         }
         """.data(using: .utf8)!
-        
+
         given(mockService)
             .request(.any)
             .willProduce { request in
@@ -83,11 +84,12 @@ struct GeminiAPIProbeTests {
                     return (quotaResponse, HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!)
                 }
             }
-        
+
         let probe = GeminiAPIProbe(
             homeDirectory: homeDir.path,
             timeout: 1.0,
-            networkClient: mockService
+            networkClient: mockService,
+            maxRetries: 1
         )
         
         let snapshot = try await probe.probe()
@@ -129,9 +131,10 @@ struct GeminiAPIProbeTests {
         let probe = GeminiAPIProbe(
             homeDirectory: homeDir.path,
             timeout: 1.0,
-            networkClient: mockService
+            networkClient: mockService,
+            maxRetries: 1
         )
-        
+
         await #expect(throws: ProbeError.executionFailed("HTTP 500")) {
             try await probe.probe()
         }

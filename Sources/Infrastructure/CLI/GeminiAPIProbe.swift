@@ -12,14 +12,18 @@ internal struct GeminiAPIProbe {
     private static let quotaEndpoint = "https://cloudcode-pa.googleapis.com/v1internal:retrieveUserQuota"
     private static let credentialsPath = "/.gemini/oauth_creds.json"
 
+    private let maxRetries: Int
+
     init(
         homeDirectory: String,
         timeout: TimeInterval,
-        networkClient: any NetworkClient
+        networkClient: any NetworkClient,
+        maxRetries: Int = 3
     ) {
         self.homeDirectory = homeDirectory
         self.timeout = timeout
         self.networkClient = networkClient
+        self.maxRetries = maxRetries
     }
 
     func probe() async throws -> UsageSnapshot {
@@ -33,7 +37,7 @@ internal struct GeminiAPIProbe {
 
         // Discover the Gemini project ID for accurate quota data
         // Uses retry logic to handle cold-start network delays
-        let repository = GeminiProjectRepository(networkClient: networkClient, timeout: timeout)
+        let repository = GeminiProjectRepository(networkClient: networkClient, timeout: timeout, maxRetries: maxRetries)
         let projectId = await repository.fetchBestProject(accessToken: accessToken)?.projectId
 
         if projectId == nil {

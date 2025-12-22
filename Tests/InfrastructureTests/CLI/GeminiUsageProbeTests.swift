@@ -61,11 +61,12 @@ struct GeminiUsageProbeTests {
                 }
             }
         
-        // Initialize probe with mock network client
+        // Initialize probe with mock network client (maxRetries: 0 to skip retry delays in tests)
         let probe = GeminiUsageProbe(
             homeDirectory: homeDir.path,
             timeout: 1.0,
-            networkClient: mockService
+            networkClient: mockService,
+            maxRetries: 1
         )
         
         // When

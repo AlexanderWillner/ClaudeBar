@@ -8,22 +8,22 @@ import Mockable
 struct CodexUsageProbeTests {
 
     @Test
-    func `isAvailable returns true when CLI executor finds binary`() async {
+    func `isAvailable returns true when client finds binary`() async {
         // Given
-        let mockExecutor = MockCLIExecutor()
-        given(mockExecutor).locate(.any).willReturn("/usr/local/bin/codex")
-        let probe = CodexUsageProbe(cliExecutor: mockExecutor)
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).isAvailable().willReturn(true)
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When & Then
         #expect(await probe.isAvailable() == true)
     }
 
     @Test
-    func `isAvailable returns false when CLI executor cannot find binary`() async {
+    func `isAvailable returns false when client cannot find binary`() async {
         // Given
-        let mockExecutor = MockCLIExecutor()
-        given(mockExecutor).locate(.any).willReturn(nil)
-        let probe = CodexUsageProbe(cliExecutor: mockExecutor)
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).isAvailable().willReturn(false)
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When & Then
         #expect(await probe.isAvailable() == false)
@@ -43,26 +43,25 @@ struct CodexUsageProbeTests {
     }
 }
 
-// MARK: - RPC Client Tests
+// MARK: - Probe Tests
 
 @Suite
 struct CodexUsageProbeRPCTests {
 
     @Test
-    func `probe returns snapshot from RPC client`() async throws {
+    func `probe returns snapshot from client`() async throws {
         // Given
-        let mockRPC = MockCodexRPCClient()
-        given(mockRPC).initialize().willReturn(())
-        given(mockRPC).fetchRateLimits().willReturn(
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).fetchRateLimits().willReturn(
             CodexRateLimitsResponse(
                 primary: CodexRateLimitWindow(usedPercent: 30, resetDescription: "Resets in 2h"),
                 secondary: CodexRateLimitWindow(usedPercent: 50, resetDescription: "Resets in 3d"),
                 planType: "pro"
             )
         )
-        given(mockRPC).shutdown().willReturn(())
+        given(mockClient).shutdown().willReturn(())
 
-        let probe = CodexUsageProbe(rpcClientFactory: { _, _ in mockRPC })
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When
         let snapshot = try await probe.probe()
@@ -77,17 +76,16 @@ struct CodexUsageProbeRPCTests {
     @Test
     func `probe returns only primary quota when secondary is nil`() async throws {
         // Given
-        let mockRPC = MockCodexRPCClient()
-        given(mockRPC).initialize().willReturn(())
-        given(mockRPC).fetchRateLimits().willReturn(
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).fetchRateLimits().willReturn(
             CodexRateLimitsResponse(
                 primary: CodexRateLimitWindow(usedPercent: 25, resetDescription: nil),
                 secondary: nil
             )
         )
-        given(mockRPC).shutdown().willReturn(())
+        given(mockClient).shutdown().willReturn(())
 
-        let probe = CodexUsageProbe(rpcClientFactory: { _, _ in mockRPC })
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When
         let snapshot = try await probe.probe()
@@ -101,18 +99,17 @@ struct CodexUsageProbeRPCTests {
     @Test
     func `probe handles free plan with zero usage`() async throws {
         // Given
-        let mockRPC = MockCodexRPCClient()
-        given(mockRPC).initialize().willReturn(())
-        given(mockRPC).fetchRateLimits().willReturn(
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).fetchRateLimits().willReturn(
             CodexRateLimitsResponse(
                 primary: CodexRateLimitWindow(usedPercent: 0, resetDescription: "Free plan"),
                 secondary: nil,
                 planType: "free"
             )
         )
-        given(mockRPC).shutdown().willReturn(())
+        given(mockClient).shutdown().willReturn(())
 
-        let probe = CodexUsageProbe(rpcClientFactory: { _, _ in mockRPC })
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When
         let snapshot = try await probe.probe()
@@ -125,17 +122,16 @@ struct CodexUsageProbeRPCTests {
     @Test
     func `probe clamps negative percent remaining to zero`() async throws {
         // Given - usage over 100%
-        let mockRPC = MockCodexRPCClient()
-        given(mockRPC).initialize().willReturn(())
-        given(mockRPC).fetchRateLimits().willReturn(
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).fetchRateLimits().willReturn(
             CodexRateLimitsResponse(
                 primary: CodexRateLimitWindow(usedPercent: 110, resetDescription: nil),
                 secondary: nil
             )
         )
-        given(mockRPC).shutdown().willReturn(())
+        given(mockClient).shutdown().willReturn(())
 
-        let probe = CodexUsageProbe(rpcClientFactory: { _, _ in mockRPC })
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When
         let snapshot = try await probe.probe()
@@ -145,25 +141,24 @@ struct CodexUsageProbeRPCTests {
     }
 
     @Test
-    func `probe shuts down RPC client after successful fetch`() async throws {
+    func `probe shuts down client after fetch`() async throws {
         // Given
-        let mockRPC = MockCodexRPCClient()
-        given(mockRPC).initialize().willReturn(())
-        given(mockRPC).fetchRateLimits().willReturn(
+        let mockClient = MockCodexRPCClient()
+        given(mockClient).fetchRateLimits().willReturn(
             CodexRateLimitsResponse(
                 primary: CodexRateLimitWindow(usedPercent: 50, resetDescription: nil),
                 secondary: nil
             )
         )
-        given(mockRPC).shutdown().willReturn(())
+        given(mockClient).shutdown().willReturn(())
 
-        let probe = CodexUsageProbe(rpcClientFactory: { _, _ in mockRPC })
+        let probe = CodexUsageProbe(client: mockClient)
 
         // When
         _ = try await probe.probe()
 
         // Then - verify shutdown was called
-        verify(mockRPC).shutdown().called(.atLeastOnce)
+        verify(mockClient).shutdown().called(.atLeastOnce)
     }
 }
 

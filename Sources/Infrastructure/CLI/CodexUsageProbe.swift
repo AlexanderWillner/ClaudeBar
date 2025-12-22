@@ -5,13 +5,16 @@ import os.log
 
 private let logger = Logger(subsystem: "com.claudebar", category: "CodexProbe")
 
-// MARK: - RPC Client Protocol (for testability)
+// MARK: - Codex Service Protocol
 
-/// Protocol for Codex RPC client - enables mocking for unit tests.
+/// Protocol for Codex service - from user's mental model: "Is it available?" and "Get my stats"
 @Mockable
 public protocol CodexRPCClient: Sendable {
-    func initialize() async throws
+    /// Is the Codex CLI available on this system?
+    func isAvailable() -> Bool
+    /// Fetch rate limits from Codex service
     func fetchRateLimits() async throws -> CodexRateLimitsResponse
+    /// Cleanup resources
     func shutdown()
 }
 
@@ -39,64 +42,30 @@ public struct CodexRateLimitWindow: Sendable, Equatable {
     }
 }
 
-/// Factory type for creating RPC clients.
-public typealias CodexRPCClientFactory = @Sendable (String, TimeInterval) throws -> any CodexRPCClient
-
 /// Infrastructure adapter that probes the Codex CLI to fetch usage quotas.
-/// Uses JSON-RPC via `codex app-server` for reliable data fetching.
 public struct CodexUsageProbe: UsageProbe {
-    private let codexBinary: String
-    private let timeout: TimeInterval
-    private let rpcClientFactory: CodexRPCClientFactory
-    private let cliExecutor: CLIExecutor
+    private let client: CodexRPCClient
 
-    public init(
-        codexBinary: String = "codex",
-        timeout: TimeInterval = 20.0,
-        rpcClientFactory: CodexRPCClientFactory? = nil,
-        cliExecutor: CLIExecutor? = nil
-    ) {
-        self.codexBinary = codexBinary
-        self.timeout = timeout
-        self.rpcClientFactory = rpcClientFactory ?? { binary, timeout in
-            try DefaultCodexRPCClient(executable: binary, timeout: timeout)
-        }
-        self.cliExecutor = cliExecutor ?? DefaultCLIExecutor()
+    public init(client: CodexRPCClient? = nil) {
+        self.client = client ?? DefaultCodexRPCClient()
     }
 
     public func isAvailable() async -> Bool {
-        cliExecutor.locate(codexBinary) != nil
+        client.isAvailable()
     }
 
     public func probe() async throws -> UsageSnapshot {
         logger.info("Starting Codex probe...")
+        defer { client.shutdown() }
 
-        // Try RPC first, fall back to TTY
-        do {
-            let snapshot = try await probeViaRPC()
-            logger.info("Codex RPC probe success: \(snapshot.quotas.count) quotas found")
-            for quota in snapshot.quotas {
-                logger.info("  - \(quota.quotaType.displayName): \(Int(quota.percentRemaining))% remaining")
-            }
-            return snapshot
-        } catch {
-            logger.warning("Codex RPC failed: \(error.localizedDescription), trying TTY fallback...")
-            let snapshot = try await probeViaTTY()
-            logger.info("Codex TTY probe success: \(snapshot.quotas.count) quotas found")
-            return snapshot
+        let limits = try await client.fetchRateLimits()
+        let snapshot = try Self.mapRateLimitsToSnapshot(limits)
+
+        logger.info("Codex probe success: \(snapshot.quotas.count) quotas found")
+        for quota in snapshot.quotas {
+            logger.info("  - \(quota.quotaType.displayName): \(Int(quota.percentRemaining))% remaining")
         }
-    }
-
-    // MARK: - RPC Approach
-
-    private func probeViaRPC() async throws -> UsageSnapshot {
-        let rpc = try rpcClientFactory(codexBinary, timeout)
-        defer { rpc.shutdown() }
-
-        try await rpc.initialize()
-        let limits = try await rpc.fetchRateLimits()
-
-        return try Self.mapRateLimitsToSnapshot(limits)
+        return snapshot
     }
 
     /// Maps RPC rate limits response to a UsageSnapshot (internal for testing).
@@ -130,33 +99,6 @@ public struct CodexUsageProbe: UsageProbe {
             quotas: quotas,
             capturedAt: Date()
         )
-    }
-
-    // MARK: - TTY Fallback
-
-    private func probeViaTTY() async throws -> UsageSnapshot {
-        logger.info("Starting Codex TTY fallback...")
-
-        let result: CLIResult
-        do {
-            result = try cliExecutor.execute(
-                binary: codexBinary,
-                args: ["-s", "read-only", "-a", "untrusted"],
-                input: "/status\n",
-                timeout: timeout,
-                workingDirectory: nil,
-                sendOnSubstrings: [:]
-            )
-        } catch {
-            logger.error("Codex TTY failed: \(error.localizedDescription)")
-            throw ProbeError.executionFailed(error.localizedDescription)
-        }
-
-        logger.debug("Codex TTY raw output:\n\(result.output)")
-
-        let snapshot = try Self.parse(result.output)
-        logger.info("Codex TTY success: \(snapshot.quotas.count) quotas")
-        return snapshot
     }
 
     // MARK: - Parsing (for TTY fallback)

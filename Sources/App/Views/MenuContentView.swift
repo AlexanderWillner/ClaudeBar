@@ -104,31 +104,9 @@ struct MenuContentView: View {
 
     private var headerView: some View {
         HStack(spacing: 12) {
-            // Provider Icon with glow - changes based on selected provider
-            ZStack {
-                // Glow effect matching provider color
-                Circle()
-                    .fill(selectedProvider.themeColor.opacity(0.5))
-                    .frame(width: 52, height: 52)
-                    .blur(radius: 15)
-
-                // Icon container with provider gradient
-                Circle()
-                    .fill(selectedProvider.themeGradient)
-                    .frame(width: 42, height: 42)
-                    .overlay(
-                        Circle()
-                            .stroke(Color.white.opacity(0.4), lineWidth: 1.5)
-                    )
-                    .shadow(color: selectedProvider.themeColor.opacity(0.4), radius: 8, y: 2)
-
-                // Provider-specific icon
-                Image(systemName: selectedProvider.headerIcon)
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(.white)
-                    .shadow(color: .black.opacity(0.2), radius: 1, y: 1)
-            }
-            .animation(.spring(response: 0.4, dampingFraction: 0.7), value: selectedProvider)
+            // Custom Provider Icon - changes based on selected provider
+            ProviderIconView(provider: selectedProvider, size: 24)
+                .animation(.spring(response: 0.4, dampingFraction: 0.7), value: selectedProvider)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("ClaudeBar")
@@ -138,9 +116,7 @@ struct MenuContentView: View {
                 Text("AI Usage Monitor")
                     .font(WrappedTheme.captionFont(size: 11))
                     .foregroundStyle(.white.opacity(0.7))
-                    .contentTransition(.interpolate)
             }
-            .animation(.easeInOut(duration: 0.2), value: selectedProvider)
 
             Spacer()
 

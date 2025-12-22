@@ -62,6 +62,7 @@ let package = Package(
             ],
             resources: [
                 .process("Assets.xcassets"),
+                .process("Resources"),
             ],
             swiftSettings: [
                 .enableUpcomingFeature("StrictConcurrency"),

@@ -57,9 +57,9 @@ public final class NotificationQuotaObserver: StatusChangeObserver, @unchecked S
         }
     }
 
-    // MARK: - Helpers
+    // MARK: - Helpers (internal for testability)
 
-    private func shouldNotify(for status: QuotaStatus) -> Bool {
+    func shouldNotify(for status: QuotaStatus) -> Bool {
         switch status {
         case .warning, .critical, .depleted:
             return true
@@ -68,11 +68,11 @@ public final class NotificationQuotaObserver: StatusChangeObserver, @unchecked S
         }
     }
 
-    private func providerDisplayName(for providerId: String) -> String {
+    func providerDisplayName(for providerId: String) -> String {
         AIProviderRegistry.shared.provider(for: providerId)?.name ?? providerId.capitalized
     }
 
-    private func notificationBody(for status: QuotaStatus, providerName: String) -> String {
+    func notificationBody(for status: QuotaStatus, providerName: String) -> String {
         switch status {
         case .warning:
             return "Your \(providerName) quota is running low. Consider pacing your usage."

@@ -1,30 +1,7 @@
 import Testing
 import Foundation
+import Mockable
 @testable import Domain
-
-// MARK: - Mock Probe for Testing
-
-/// A mock probe for testing providers
-struct MockUsageProbe: UsageProbe {
-    var isAvailableResult: Bool = true
-    var probeResult: UsageSnapshot?
-    var probeError: Error?
-
-    func probe() async throws -> UsageSnapshot {
-        if let error = probeError {
-            throw error
-        }
-        return probeResult ?? UsageSnapshot(
-            providerId: "mock",
-            quotas: [],
-            capturedAt: Date()
-        )
-    }
-
-    func isAvailable() async -> Bool {
-        isAvailableResult
-    }
-}
 
 @Suite
 struct AIProviderProtocolTests {

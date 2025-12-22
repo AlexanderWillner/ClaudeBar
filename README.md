@@ -9,7 +9,7 @@
 
 A macOS menu bar application that monitors AI coding assistant usage quotas. Keep track of your Claude, Codex, and Gemini usage at a glance.
 
-![ClaudeBar Screenshot](docs/Screenshot.png)
+![ClaudeBar Screenshot](docs/Screenshot-new.png)
 
 ## Features
 

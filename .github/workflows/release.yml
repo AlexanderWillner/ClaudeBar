@@ -133,10 +133,11 @@ jobs:
           fi
 
           # Copy resource bundle for Bundle.module access (images, etc.)
+          # SPM's Bundle.module looks for the bundle at app bundle root, not Contents/Resources
           RESOURCE_BUNDLE=$(swift build -c release --arch arm64 --show-bin-path)/ClaudeBar_ClaudeBar.bundle
           if [ -d "$RESOURCE_BUNDLE" ]; then
-            cp -R "$RESOURCE_BUNDLE" "$RESOURCES/"
-            echo "Copied resource bundle to Resources"
+            cp -R "$RESOURCE_BUNDLE" "$APP_BUNDLE/"
+            echo "Copied resource bundle to app bundle root"
           fi
 
           # Create PkgInfo

@@ -177,17 +177,47 @@ Your repository secrets should look like:
 
 Once all secrets are configured:
 
+### Option A: Tag-based Release
+
 ```bash
-# Tag a release
+# Stable release
 git tag v1.0.0
 git push origin v1.0.0
+
+# Beta release
+git tag v1.0.0-beta.1
+git push origin v1.0.0-beta.1
+
+# Alpha or release candidate
+git tag v2.0.0-alpha.1
+git tag v2.0.0-rc.1
 ```
+
+### Option B: Manual Release (workflow_dispatch)
+
+1. Go to **Actions** → **Release** workflow
+2. Click **Run workflow**
+3. Enter the version (e.g., `1.0.0` or `1.0.0-beta.1`)
+4. Click **Run workflow**
+
+### Supported Version Formats
+
+| Format | Example | Release Type |
+|--------|---------|--------------|
+| `X.Y.Z` | `1.0.0` | Stable |
+| `X.Y.Z-beta` | `1.0.0-beta` | Pre-release |
+| `X.Y.Z-beta.N` | `1.0.0-beta.3` | Pre-release |
+| `X.Y.Z-alpha.N` | `2.0.0-alpha.1` | Pre-release |
+| `X.Y.Z-rc.N` | `2.0.0-rc.1` | Pre-release |
+
+Pre-releases are automatically flagged on GitHub and won't appear as the "latest" release.
 
 The GitHub Actions workflow will automatically:
 1. Build the app for Intel and Apple Silicon
 2. Sign with your Developer ID certificate
 3. Notarize with Apple
 4. Create a GitHub release with DMG and ZIP
+5. Mark as pre-release if version contains `-`
 
 ---
 
@@ -265,8 +295,11 @@ base64 -i AuthKey_XXXX.p8 | tr -d '\n' | pbcopy
 # Check local signing identities
 security find-identity -v -p codesigning
 
-# Create a release
+# Create a stable release
 git tag v1.0.0 && git push origin v1.0.0
+
+# Create a beta release
+git tag v1.0.0-beta.1 && git push origin v1.0.0-beta.1
 ```
 
 ### Links

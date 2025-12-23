@@ -1,23 +1,38 @@
 import Foundation
 
-/// Locates CLI binaries on the system.
-/// Answers the user question: "Is this tool available?"
+/// Finds where CLI tools are installed on the system.
+///
+/// Many AI coding assistants (Claude, Codex, Gemini) are installed via npm, Homebrew,
+/// or other package managers in non-standard locations. This locator searches common
+/// installation paths to find them.
+///
+/// Usage:
+/// ```swift
+/// if let path = BinaryLocator.which("claude") {
+///     print("Claude CLI found at: \(path)")
+/// }
+/// ```
 public struct BinaryLocator: Sendable {
     public init() {}
 
-    /// Finds a binary by name, searching common installation paths.
-    /// Returns the full path if found, nil otherwise.
+    /// Finds a tool by name, searching common installation paths.
+    ///
+    /// - Parameter tool: The name of the CLI tool (e.g., "claude", "codex", "gemini")
+    /// - Returns: The full path to the tool if found, nil otherwise
     public func locate(_ tool: String) -> String? {
         Self.which(tool)
     }
 
-    /// Static convenience for locating binaries.
+    /// Finds a tool by name (static convenience).
+    ///
+    /// - Parameter tool: The name of the CLI tool
+    /// - Returns: The full path to the tool if found, nil otherwise
     public static func which(_ tool: String) -> String? {
         let proc = Process()
         proc.executableURL = URL(fileURLWithPath: "/usr/bin/which")
         proc.arguments = [tool]
         var env = ProcessInfo.processInfo.environment
-        env["PATH"] = effectivePATH()
+        env["PATH"] = searchPaths()
         proc.environment = env
         let pipe = Pipe()
         proc.standardOutput = pipe
@@ -31,10 +46,13 @@ public struct BinaryLocator: Sendable {
         return path
     }
 
-    /// Returns PATH enriched with common CLI installation locations.
-    public static func effectivePATH() -> String {
+    // MARK: - Internal
+
+    /// Common locations where CLI tools are typically installed.
+    /// Includes Homebrew, npm global, bun, nvm, and standard Unix paths.
+    static func searchPaths() -> String {
         let home = NSHomeDirectory()
-        let common = [
+        let commonLocations = [
             "/usr/local/bin",
             "/opt/homebrew/bin",
             "\(home)/.local/bin",
@@ -43,7 +61,7 @@ public struct BinaryLocator: Sendable {
             "/usr/bin",
             "/bin",
         ]
-        let existing = ProcessInfo.processInfo.environment["PATH"] ?? ""
-        return (common + [existing]).joined(separator: ":")
+        let existingPath = ProcessInfo.processInfo.environment["PATH"] ?? ""
+        return (commonLocations + [existingPath]).joined(separator: ":")
     }
 }

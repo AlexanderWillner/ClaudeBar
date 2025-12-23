@@ -75,16 +75,27 @@ struct ClaudeUsageProbeTests {
     @Test
     func `extractEmail finds email in various formats`() {
         let probe = ClaudeUsageProbe()
+        // Old format
         #expect(probe.extractEmail(text: "Account: user@example.com") == "user@example.com")
         #expect(probe.extractEmail(text: "Email: user@example.com") == "user@example.com")
+        // Header format
+        #expect(probe.extractEmail(text: "Opus 4.5 · Claude Max · user@example.com's Organization") == "user@example.com")
+        #expect(probe.extractEmail(text: "Opus 4.5 · Claude Pro · test@test.com's Org") == "test@test.com")
+        // No email
         #expect(probe.extractEmail(text: "No email here") == nil)
+        #expect(probe.extractEmail(text: "Opus 4.5 · Claude Pro · Organization") == nil)
     }
 
     @Test
     func `extractOrganization finds org`() {
         let probe = ClaudeUsageProbe()
+        // Old format
         #expect(probe.extractOrganization(text: "Organization: Acme Corp") == "Acme Corp")
         #expect(probe.extractOrganization(text: "Org: Acme Corp") == "Acme Corp")
+        // Header format with email
+        #expect(probe.extractOrganization(text: "Opus 4.5 · Claude Max · user@example.com's Organization") == "user@example.com's Organization")
+        // Header format without email
+        #expect(probe.extractOrganization(text: "Opus 4.5 · Claude Pro · My Company") == "My Company")
     }
 
     @Test

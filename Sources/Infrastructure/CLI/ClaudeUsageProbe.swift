@@ -331,13 +331,33 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
     }
 
     internal func extractEmail(text: String) -> String? {
-        let pattern = #"(?i)(?:Account|Email):\s*([^\s@]+@[^\s@]+)"#
-        return extractFirst(pattern: pattern, text: text)
+        // Try old format first: "Account: email" or "Email: email"
+        let oldPattern = #"(?i)(?:Account|Email):\s*([^\s@]+@[^\s@]+)"#
+        if let email = extractFirst(pattern: oldPattern, text: text) {
+            return email
+        }
+
+        // Try header format: "Opus 4.5 · Claude Max · email@example.com's Organization"
+        // Stop at apostrophe (') to not capture the "'s" part
+        let headerPattern = #"·\s*Claude\s+(?:Max|Pro)\s*·\s*([^\s@]+@[^\s@']+)"#
+        return extractFirst(pattern: headerPattern, text: text)
     }
 
     internal func extractOrganization(text: String) -> String? {
-        let pattern = #"(?i)(?:Org|Organization):\s*(.+)"#
-        return extractFirst(pattern: pattern, text: text)
+        // Try old format first: "Organization: org" or "Org: org"
+        let oldPattern = #"(?i)(?:Org|Organization):\s*(.+)"#
+        if let org = extractFirst(pattern: oldPattern, text: text) {
+            return org
+        }
+
+        // Try header format: "Opus 4.5 · Claude Max · email@example.com's Organization"
+        // or "Opus 4.5 · Claude Pro · Organization"
+        let headerPattern = #"·\s*Claude\s+(?:Max|Pro)\s*·\s*(.+?)(?:\s*$|\n)"#
+        if let match = extractFirst(pattern: headerPattern, text: text) {
+            // Clean up the organization string
+            return match.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return nil
     }
 
     internal func extractLoginMethod(text: String) -> String? {

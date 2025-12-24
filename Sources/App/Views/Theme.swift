@@ -8,12 +8,14 @@ enum ThemeMode: String, CaseIterable {
     case light
     case dark
     case system
+    case christmas
 
     var displayName: String {
         switch self {
         case .light: "Light"
         case .dark: "Dark"
         case .system: "System"
+        case .christmas: "Christmas"
         }
     }
 
@@ -22,20 +24,35 @@ enum ThemeMode: String, CaseIterable {
         case .light: "sun.max.fill"
         case .dark: "moon.stars.fill"
         case .system: "circle.lefthalf.filled"
+        case .christmas: "snowflake"
         }
+    }
+
+    /// Whether this theme uses Christmas-specific colors
+    var isChristmas: Bool {
+        self == .christmas
     }
 }
 
-// MARK: - Theme Environment Key
+// MARK: - Theme Environment Keys
 
 private struct ActiveThemeKey: EnvironmentKey {
     static let defaultValue: ColorScheme = .dark
+}
+
+private struct IsChristmasThemeKey: EnvironmentKey {
+    static let defaultValue: Bool = false
 }
 
 extension EnvironmentValues {
     var activeTheme: ColorScheme {
         get { self[ActiveThemeKey.self] }
         set { self[ActiveThemeKey.self] = newValue }
+    }
+
+    var isChristmasTheme: Bool {
+        get { self[IsChristmasThemeKey.self] }
+        set { self[IsChristmasThemeKey.self] = newValue }
     }
 }
 
@@ -104,6 +121,106 @@ enum AppTheme {
             ? Color(red: 0.35, green: 0.85, blue: 0.78)
             : Color(red: 0.18, green: 0.72, blue: 0.68)
     }
+
+    // MARK: - Christmas Theme Colors
+
+    /// Deep Christmas red - rich crimson
+    static let christmasRed = Color(red: 0.78, green: 0.12, blue: 0.18)
+
+    /// Bright Christmas red - candy apple
+    static let christmasCandyRed = Color(red: 0.92, green: 0.22, blue: 0.28)
+
+    /// Holly green - deep forest
+    static let christmasGreenDeep = Color(red: 0.08, green: 0.38, blue: 0.18)
+
+    /// Bright Christmas green - holly leaf
+    static let christmasGreenBright = Color(red: 0.15, green: 0.58, blue: 0.28)
+
+    /// Christmas gold - warm metallic
+    static let christmasGold = Color(red: 0.95, green: 0.78, blue: 0.28)
+
+    /// Snow white - icy sparkle
+    static let christmasSnow = Color(red: 0.96, green: 0.98, blue: 1.0)
+
+    /// Ice blue - frosty accent
+    static let christmasIce = Color(red: 0.78, green: 0.92, blue: 0.98)
+
+    /// Christmas cranberry - deep berry
+    static let christmasCranberry = Color(red: 0.58, green: 0.08, blue: 0.22)
+
+    /// Pine needle green - subtle forest
+    static let christmasPine = Color(red: 0.12, green: 0.28, blue: 0.18)
+
+    // MARK: - Christmas Gradients
+
+    /// Christmas background gradient - deep festive night
+    static let christmasBackgroundGradient = LinearGradient(
+        colors: [
+            christmasPine,
+            christmasGreenDeep,
+            christmasCranberry.opacity(0.6)
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Christmas card gradient - frosted glass with holiday warmth
+    static let christmasCardGradient = LinearGradient(
+        colors: [
+            christmasSnow.opacity(0.22),
+            christmasIce.opacity(0.12)
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Christmas accent gradient - red and gold festive
+    static let christmasAccentGradient = LinearGradient(
+        colors: [christmasCandyRed, christmasGold],
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+
+    /// Christmas pill gradient - subtle holly
+    static let christmasPillGradient = LinearGradient(
+        colors: [
+            christmasGreenBright.opacity(0.5),
+            christmasRed.opacity(0.35)
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Candy cane stripe gradient
+    static let candyCaneGradient = LinearGradient(
+        colors: [
+            christmasSnow,
+            christmasCandyRed,
+            christmasSnow,
+            christmasCandyRed,
+            christmasSnow
+        ],
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+
+    /// Christmas glass background
+    static let christmasGlassBackground = christmasSnow.opacity(0.15)
+
+    /// Christmas glass border
+    static let christmasGlassBorder = christmasGold.opacity(0.35)
+
+    /// Christmas glass highlight
+    static let christmasGlassHighlight = christmasSnow.opacity(0.5)
+
+    /// Christmas text primary - snow white
+    static let christmasTextPrimary = christmasSnow
+
+    /// Christmas text secondary - ice blue tint
+    static let christmasTextSecondary = christmasIce.opacity(0.85)
+
+    /// Christmas text tertiary - muted ice
+    static let christmasTextTertiary = christmasIce.opacity(0.6)
 
     // MARK: - Legacy Static Colors (for backward compatibility)
 
@@ -712,7 +829,8 @@ struct ThemeSwitcherButton: View {
         switch themeMode {
         case .light: themeMode = .dark
         case .dark: themeMode = .system
-        case .system: themeMode = .light
+        case .system: themeMode = .christmas
+        case .christmas: themeMode = .light
         }
     }
 }
@@ -728,18 +846,188 @@ struct ThemeProvider: ViewModifier {
         case .light: .light
         case .dark: .dark
         case .system: systemColorScheme
+        case .christmas: .dark  // Christmas uses dark mode base
         }
     }
 
     func body(content: Content) -> some View {
         content
             .environment(\.activeTheme, effectiveColorScheme)
-            .preferredColorScheme(themeMode == .system ? nil : (themeMode == .dark ? .dark : .light))
+            .environment(\.isChristmasTheme, themeMode.isChristmas)
+            .preferredColorScheme(
+                themeMode == .system ? nil :
+                (themeMode == .light ? .light : .dark)  // Christmas and dark both use .dark
+            )
     }
 }
 
 extension View {
     func themeProvider(_ mode: ThemeMode) -> some View {
         modifier(ThemeProvider(themeMode: mode))
+    }
+}
+
+// MARK: - Christmas Glass Card Modifier
+
+struct ChristmasGlassCardStyle: ViewModifier {
+    @Environment(\.isChristmasTheme) private var isChristmas
+    var cornerRadius: CGFloat = 16
+    var padding: CGFloat = 12
+
+    func body(content: Content) -> some View {
+        content
+            .padding(padding)
+            .background(
+                ZStack {
+                    // Base glass layer
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .fill(isChristmas ? AppTheme.christmasCardGradient : AppTheme.cardGradient)
+
+                    // Inner border with gold accent for Christmas
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(
+                            isChristmas ? AppTheme.christmasGlassBorder : AppTheme.glassBorder,
+                            lineWidth: 1
+                        )
+
+                    // Top edge shine
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(
+                            LinearGradient(
+                                colors: [
+                                    isChristmas ? AppTheme.christmasGlassHighlight : AppTheme.glassHighlight,
+                                    Color.clear,
+                                    Color.clear
+                                ],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            ),
+                            lineWidth: 1
+                        )
+                }
+            )
+    }
+}
+
+extension View {
+    func christmasGlassCard(cornerRadius: CGFloat = 16, padding: CGFloat = 12) -> some View {
+        modifier(ChristmasGlassCardStyle(cornerRadius: cornerRadius, padding: padding))
+    }
+}
+
+// MARK: - Snowfall Effect
+
+struct SnowflakeView: View {
+    let size: CGFloat
+    @State private var yOffset: CGFloat = -50
+    @State private var xOffset: CGFloat = 0
+    @State private var rotation: Double = 0
+    @State private var opacity: Double = 0.8
+
+    var body: some View {
+        Image(systemName: "snowflake")
+            .font(.system(size: size))
+            .foregroundStyle(AppTheme.christmasSnow.opacity(opacity))
+            .rotationEffect(.degrees(rotation))
+            .offset(x: xOffset, y: yOffset)
+            .onAppear {
+                let duration = Double.random(in: 4...8)
+                let delay = Double.random(in: 0...3)
+
+                withAnimation(
+                    .linear(duration: duration)
+                    .delay(delay)
+                    .repeatForever(autoreverses: false)
+                ) {
+                    yOffset = 600
+                    xOffset = CGFloat.random(in: -30...30)
+                }
+
+                withAnimation(
+                    .linear(duration: duration * 0.5)
+                    .delay(delay)
+                    .repeatForever(autoreverses: true)
+                ) {
+                    rotation = Double.random(in: -180...180)
+                }
+            }
+    }
+}
+
+struct SnowfallOverlay: View {
+    let snowflakeCount: Int
+
+    var body: some View {
+        GeometryReader { geo in
+            ForEach(0..<snowflakeCount, id: \.self) { _ in
+                SnowflakeView(size: CGFloat.random(in: 4...10))
+                    .position(
+                        x: CGFloat.random(in: 0...geo.size.width),
+                        y: CGFloat.random(in: -50...0)
+                    )
+            }
+        }
+        .allowsHitTesting(false)
+    }
+}
+
+// MARK: - Christmas Orbs Background
+
+struct ChristmasBackgroundOrbs: View {
+    var body: some View {
+        GeometryReader { geo in
+            ZStack {
+                // Large green orb (top left)
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                AppTheme.christmasGreenBright.opacity(0.45),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 120
+                        )
+                    )
+                    .frame(width: 240, height: 240)
+                    .offset(x: -60, y: -80)
+                    .blur(radius: 40)
+
+                // Red orb (bottom right)
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                AppTheme.christmasCandyRed.opacity(0.4),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 100
+                        )
+                    )
+                    .frame(width: 200, height: 200)
+                    .offset(x: geo.size.width - 80, y: geo.size.height - 150)
+                    .blur(radius: 30)
+
+                // Golden sparkle orb (center)
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                AppTheme.christmasGold.opacity(0.25),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 60
+                        )
+                    )
+                    .frame(width: 120, height: 120)
+                    .offset(x: geo.size.width * 0.5 - 60, y: geo.size.height * 0.3)
+                    .blur(radius: 20)
+            }
+        }
     }
 }

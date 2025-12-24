@@ -11,6 +11,15 @@ public final class AppSettings {
 
     private let credentialStore: any CredentialStore
 
+    // MARK: - Theme Settings
+
+    /// The current theme mode (light, dark, system, christmas)
+    public var themeMode: String {
+        didSet {
+            UserDefaults.standard.set(themeMode, forKey: Keys.themeMode)
+        }
+    }
+
     // MARK: - Provider Settings
 
     /// Whether GitHub Copilot provider is enabled
@@ -69,6 +78,7 @@ public final class AppSettings {
 
     private init(credentialStore: any CredentialStore = UserDefaultsCredentialStore.shared) {
         self.credentialStore = credentialStore
+        self.themeMode = UserDefaults.standard.string(forKey: Keys.themeMode) ?? "system"
         self.copilotEnabled = UserDefaults.standard.bool(forKey: Keys.copilotEnabled)
         self.githubUsername = credentialStore.get(forKey: CredentialKey.githubUsername) ?? ""
         self.claudeApiBudgetEnabled = UserDefaults.standard.bool(forKey: Keys.claudeApiBudgetEnabled)
@@ -80,6 +90,7 @@ public final class AppSettings {
 
 private extension AppSettings {
     enum Keys {
+        static let themeMode = "themeMode"
         static let copilotEnabled = "copilotEnabled"
         static let claudeApiBudgetEnabled = "claudeApiBudgetEnabled"
         static let claudeApiBudget = "claudeApiBudget"

@@ -1,13 +1,15 @@
 import SwiftUI
 import Domain
 
-/// The main menu content view with adaptive light/dark theme support.
+/// The main menu content view with adaptive light/dark/christmas theme support.
 /// Features purple-pink gradients, glassmorphism cards, and bold typography.
+/// Christmas theme adds festive colors, snowfall, and holiday orbs.
 struct MenuContentView: View {
     let monitor: QuotaMonitor
     let appState: AppState
 
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.isChristmasTheme) private var isChristmas
     @State private var selectedProviderId: String = "claude"
     @State private var isHoveringRefresh = false
     @State private var animateIn = false
@@ -21,12 +23,21 @@ struct MenuContentView: View {
 
     var body: some View {
         ZStack {
-            // Gradient background
-            AppTheme.backgroundGradient(for: colorScheme)
+            // Gradient background - Christmas or standard
+            (isChristmas ? AppTheme.christmasBackgroundGradient : AppTheme.backgroundGradient(for: colorScheme))
                 .ignoresSafeArea()
 
-            // Subtle animated orbs in background
-            backgroundOrbs
+            // Subtle animated orbs in background - Christmas or standard
+            if isChristmas {
+                ChristmasBackgroundOrbs()
+            } else {
+                backgroundOrbs
+            }
+
+            // Snowfall overlay for Christmas theme
+            if isChristmas {
+                SnowfallOverlay(snowflakeCount: 15)
+            }
 
             if showSettings {
                 // Settings View
@@ -53,7 +64,7 @@ struct MenuContentView: View {
                         .padding(.horizontal, 16)
                         .padding(.bottom, 16)
                     }
-                    .frame(maxHeight: 280)
+                    .frame(maxHeight: 380)
 
                     // Bottom Action Bar
                     actionBar
@@ -127,17 +138,37 @@ struct MenuContentView: View {
     private var headerView: some View {
         HStack(spacing: 12) {
             // Custom Provider Icon - changes based on selected provider
-            ProviderIconView(providerId: selectedProviderId, size: 38)
-                .animation(.spring(response: 0.4, dampingFraction: 0.7), value: selectedProviderId)
+            // For Christmas, add festive glow effect
+            ZStack {
+                ProviderIconView(providerId: selectedProviderId, size: 38)
+
+                // Christmas star sparkle overlay
+                if isChristmas {
+                    Image(systemName: "sparkle")
+                        .font(.system(size: 10))
+                        .foregroundStyle(AppTheme.christmasGold)
+                        .offset(x: 14, y: -14)
+                }
+            }
+            .animation(.spring(response: 0.4, dampingFraction: 0.7), value: selectedProviderId)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("ClaudeBar")
-                    .font(AppTheme.titleFont(size: 18))
-                    .foregroundStyle(AppTheme.textPrimary(for: colorScheme))
+                HStack(spacing: 4) {
+                    Text("ClaudeBar")
+                        .font(AppTheme.titleFont(size: 18))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
 
-                Text("AI Usage Monitor")
+                    // Christmas tree icon
+                    if isChristmas {
+                        Image(systemName: "gift.fill")
+                            .font(.system(size: 12))
+                            .foregroundStyle(AppTheme.christmasCandyRed)
+                    }
+                }
+
+                Text(isChristmas ? "Happy Holidays!" : "AI Usage Monitor")
                     .font(AppTheme.captionFont(size: 11))
-                    .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                    .foregroundStyle(isChristmas ? AppTheme.christmasTextSecondary : AppTheme.textSecondary(for: colorScheme))
             }
 
             Spacer()
@@ -169,16 +200,21 @@ struct MenuContentView: View {
 
             Text(statusText)
                 .font(AppTheme.captionFont(size: 11))
-                .foregroundStyle(AppTheme.textPrimary(for: colorScheme))
+                .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 6)
         .background(
             Capsule()
-                .fill(selectedProviderStatus.themeColor(for: colorScheme).opacity(colorScheme == .dark ? 0.25 : 0.15))
+                .fill(selectedProviderStatus.themeColor(for: colorScheme).opacity(isChristmas ? 0.3 : (colorScheme == .dark ? 0.25 : 0.15)))
                 .overlay(
                     Capsule()
-                        .stroke(selectedProviderStatus.themeColor(for: colorScheme).opacity(colorScheme == .dark ? 0.5 : 0.3), lineWidth: 1)
+                        .stroke(
+                            isChristmas
+                                ? AppTheme.christmasGold.opacity(0.5)
+                                : selectedProviderStatus.themeColor(for: colorScheme).opacity(colorScheme == .dark ? 0.5 : 0.3),
+                            lineWidth: 1
+                        )
                 )
         )
     }
@@ -350,7 +386,8 @@ struct MenuContentView: View {
             WrappedActionButton(
                 icon: "safari.fill",
                 label: "Dashboard",
-                gradient: AppTheme.providerGradient(for: selectedProviderId, scheme: colorScheme)
+                gradient: isChristmas ? AppTheme.christmasAccentGradient : AppTheme.providerGradient(for: selectedProviderId, scheme: colorScheme),
+                isChristmas: isChristmas
             ) {
                 if let url = selectedProvider?.dashboardURL {
                     NSWorkspace.shared.open(url)
@@ -363,8 +400,11 @@ struct MenuContentView: View {
             WrappedActionButton(
                 icon: isCurrentlyRefreshing ? "arrow.trianglehead.2.counterclockwise.rotate.90" : "arrow.clockwise",
                 label: isCurrentlyRefreshing ? "Syncing" : "Refresh",
-                gradient: AppTheme.accentGradient(for: colorScheme),
-                isLoading: isCurrentlyRefreshing
+                gradient: isChristmas
+                    ? LinearGradient(colors: [AppTheme.christmasGreenBright, AppTheme.christmasGreenDeep], startPoint: .leading, endPoint: .trailing)
+                    : AppTheme.accentGradient(for: colorScheme),
+                isLoading: isCurrentlyRefreshing,
+                isChristmas: isChristmas
             ) {
                 Task { await refresh() }
             }
@@ -380,12 +420,12 @@ struct MenuContentView: View {
             } label: {
                 ZStack {
                     Circle()
-                        .fill(AppTheme.glassBackground(for: colorScheme))
+                        .fill(isChristmas ? AppTheme.christmasGlassBackground : AppTheme.glassBackground(for: colorScheme))
                         .frame(width: 32, height: 32)
 
                     Image(systemName: "gearshape.fill")
                         .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextSecondary : AppTheme.textSecondary(for: colorScheme))
                 }
             }
             .buttonStyle(.plain)
@@ -398,12 +438,12 @@ struct MenuContentView: View {
             } label: {
                 ZStack {
                     Circle()
-                        .fill(AppTheme.glassBackground(for: colorScheme))
+                        .fill(isChristmas ? AppTheme.christmasGlassBackground : AppTheme.glassBackground(for: colorScheme))
                         .frame(width: 32, height: 32)
 
                     Image(systemName: "xmark")
                         .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextSecondary : AppTheme.textSecondary(for: colorScheme))
                 }
             }
             .buttonStyle(.plain)
@@ -691,6 +731,7 @@ struct WrappedActionButton: View {
     let label: String
     let gradient: LinearGradient
     var isLoading: Bool = false
+    var isChristmas: Bool = false
     let action: () -> Void
 
     @Environment(\.colorScheme) private var colorScheme
@@ -703,7 +744,7 @@ struct WrappedActionButton: View {
                     ProgressView()
                         .scaleEffect(0.5)
                         .frame(width: 14, height: 14)
-                        .tint(AppTheme.textPrimary(for: colorScheme))
+                        .tint(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
                 } else {
                     Image(systemName: icon)
                         .font(.system(size: 12, weight: .semibold))
@@ -735,23 +776,32 @@ struct WrappedActionButton: View {
         if isHovering {
             return .white
         }
-        return AppTheme.textPrimary(for: colorScheme)
+        return isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme)
     }
 
     private var buttonBackgroundColor: Color {
-        colorScheme == .dark
+        if isChristmas {
+            return AppTheme.christmasGlassBackground
+        }
+        return colorScheme == .dark
             ? Color.white.opacity(0.15)
             : Color.white.opacity(0.85)
     }
 
     private var buttonBorderColor: Color {
-        colorScheme == .dark
+        if isChristmas {
+            return AppTheme.christmasGlassBorder
+        }
+        return colorScheme == .dark
             ? Color.white.opacity(0.2)
             : AppTheme.purpleVibrant(for: colorScheme).opacity(0.2)
     }
 
     private var shadowColor: Color {
-        AppTheme.coralAccent(for: colorScheme).opacity(colorScheme == .dark ? 0.3 : 0.2)
+        if isChristmas {
+            return AppTheme.christmasGold.opacity(0.4)
+        }
+        return AppTheme.coralAccent(for: colorScheme).opacity(colorScheme == .dark ? 0.3 : 0.2)
     }
 }
 

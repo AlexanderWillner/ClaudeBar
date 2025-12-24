@@ -83,11 +83,20 @@ struct ClaudeBarApp: App {
         }
     }
 
+    /// App settings for theme
+    @State private var settings = AppSettings.shared
+
+    /// Current theme mode from settings
+    private var currentThemeMode: ThemeMode {
+        ThemeMode(rawValue: settings.themeMode) ?? .system
+    }
+
     var body: some Scene {
         MenuBarExtra {
             MenuContentView(monitor: monitor, appState: appState)
+                .themeProvider(currentThemeMode)
         } label: {
-            StatusBarIcon(status: appState.overallStatus)
+            StatusBarIcon(status: appState.overallStatus, isChristmas: currentThemeMode == .christmas)
         }
         .menuBarExtraStyle(.window)
     }
@@ -96,13 +105,17 @@ struct ClaudeBarApp: App {
 /// The menu bar icon that reflects the overall quota status
 struct StatusBarIcon: View {
     let status: QuotaStatus
+    var isChristmas: Bool = false
 
     var body: some View {
         Image(systemName: iconName)
-            .foregroundStyle(status.displayColor)
+            .foregroundStyle(iconColor)
     }
 
     private var iconName: String {
+        if isChristmas {
+            return "snowflake"
+        }
         switch status {
         case .depleted:
             return "chart.bar.xaxis"
@@ -113,5 +126,12 @@ struct StatusBarIcon: View {
         case .healthy:
             return "chart.bar.fill"
         }
+    }
+
+    private var iconColor: Color {
+        if isChristmas {
+            return AppTheme.christmasCandyRed
+        }
+        return status.displayColor
     }
 }

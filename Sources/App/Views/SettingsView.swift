@@ -29,6 +29,7 @@ struct SettingsContentView: View {
             // Scrollable Content
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 12) {
+                    themeCard
                     claudeBudgetCard
                     copilotCard
                 }
@@ -47,6 +48,87 @@ struct SettingsContentView: View {
                 budgetInput = String(describing: settings.claudeApiBudget)
             }
         }
+    }
+
+    // MARK: - Theme Card
+
+    @Environment(\.isChristmasTheme) private var isChristmas
+
+    /// Convert ThemeMode to string for settings storage
+    private var currentThemeMode: ThemeMode {
+        ThemeMode(rawValue: settings.themeMode) ?? .system
+    }
+
+    private var themeCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Header
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .fill(
+                            isChristmas
+                                ? AppTheme.christmasAccentGradient
+                                : AppTheme.accentGradient(for: colorScheme)
+                        )
+                        .frame(width: 32, height: 32)
+
+                    Image(systemName: currentThemeMode.icon)
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Appearance")
+                        .font(AppTheme.titleFont(size: 14))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+
+                    Text("Choose your theme")
+                        .font(AppTheme.captionFont(size: 10))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                }
+
+                Spacer()
+            }
+
+            // Theme options grid
+            LazyVGrid(columns: [
+                GridItem(.flexible(), spacing: 8),
+                GridItem(.flexible(), spacing: 8)
+            ], spacing: 8) {
+                ForEach(ThemeMode.allCases, id: \.rawValue) { mode in
+                    ThemeOptionButton(
+                        mode: mode,
+                        isSelected: currentThemeMode == mode,
+                        isChristmas: isChristmas
+                    ) {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            settings.themeMode = mode.rawValue
+                        }
+                    }
+                }
+            }
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(isChristmas ? AppTheme.christmasCardGradient : AppTheme.cardGradient(for: colorScheme))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(
+                            LinearGradient(
+                                colors: isChristmas
+                                    ? [AppTheme.christmasGold.opacity(0.4), AppTheme.christmasGold.opacity(0.2)]
+                                    : [
+                                        colorScheme == .dark ? Color.white.opacity(0.25) : AppTheme.purpleVibrant(for: colorScheme).opacity(0.18),
+                                        colorScheme == .dark ? Color.white.opacity(0.08) : AppTheme.pinkHot(for: colorScheme).opacity(0.08)
+                                    ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+        )
     }
 
     // MARK: - Header
@@ -511,6 +593,131 @@ struct SettingsContentView: View {
         settings.deleteCopilotToken()
         saveError = nil
         appState.removeProvider(id: "copilot")
+    }
+}
+
+// MARK: - Theme Option Button
+
+struct ThemeOptionButton: View {
+    let mode: ThemeMode
+    let isSelected: Bool
+    let isChristmas: Bool
+    let action: () -> Void
+
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var isHovering = false
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 8) {
+                // Icon with festive styling for Christmas
+                ZStack {
+                    Circle()
+                        .fill(iconBackgroundGradient)
+                        .frame(width: 28, height: 28)
+
+                    Image(systemName: mode.icon)
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(mode.displayName)
+                        .font(AppTheme.bodyFont(size: 11))
+                        .foregroundStyle(textColor)
+
+                    if mode == .christmas {
+                        Text("Festive")
+                            .font(AppTheme.captionFont(size: 8))
+                            .foregroundStyle(AppTheme.christmasGold)
+                    }
+                }
+
+                Spacer()
+
+                // Selection indicator
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 14))
+                        .foregroundStyle(checkmarkColor)
+                }
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(backgroundColor)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(borderColor, lineWidth: isSelected ? 2 : 1)
+                    )
+            )
+            .scaleEffect(isHovering ? 1.02 : 1.0)
+        }
+        .buttonStyle(.plain)
+        .onHover { isHovering = $0 }
+    }
+
+    private var iconBackgroundGradient: LinearGradient {
+        switch mode {
+        case .light:
+            return LinearGradient(
+                colors: [Color.orange, Color.yellow],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .dark:
+            return LinearGradient(
+                colors: [Color.indigo, Color.purple],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .system:
+            return LinearGradient(
+                colors: [Color.gray, Color.secondary],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .christmas:
+            return AppTheme.christmasAccentGradient
+        }
+    }
+
+    private var textColor: Color {
+        if isChristmas {
+            return AppTheme.christmasTextPrimary
+        }
+        return AppTheme.textPrimary(for: colorScheme)
+    }
+
+    private var checkmarkColor: Color {
+        if mode == .christmas || isChristmas {
+            return AppTheme.christmasGold
+        }
+        return AppTheme.statusHealthy(for: colorScheme)
+    }
+
+    private var backgroundColor: Color {
+        if isSelected {
+            if mode == .christmas || isChristmas {
+                return AppTheme.christmasGreenDeep.opacity(0.3)
+            }
+            return AppTheme.purpleVibrant(for: colorScheme).opacity(0.15)
+        }
+        if isHovering {
+            return AppTheme.glassBackground(for: colorScheme)
+        }
+        return Color.clear
+    }
+
+    private var borderColor: Color {
+        if isSelected {
+            if mode == .christmas || isChristmas {
+                return AppTheme.christmasGold
+            }
+            return AppTheme.purpleVibrant(for: colorScheme)
+        }
+        return AppTheme.glassBorder(for: colorScheme).opacity(0.5)
     }
 }
 

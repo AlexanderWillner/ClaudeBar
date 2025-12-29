@@ -305,12 +305,13 @@ public struct AntigravityUsageProbe: UsageProbe {
         AppLog.probes.debug("Antigravity: Found \(modelConfigs.count) model configs")
 
         let quotas = modelConfigs.compactMap { config -> UsageQuota? in
-            guard let quotaInfo = config.quotaInfo,
-                  let remainingFraction = quotaInfo.remainingFraction else {
+            guard let quotaInfo = config.quotaInfo else {
                 AppLog.probes.debug("Antigravity: Skipping model '\(config.label)' - no quota info")
                 return nil
             }
 
+            // Missing remainingFraction means 0% remaining (quota exhausted)
+            let remainingFraction = quotaInfo.remainingFraction ?? 0.0
             let resetsAt = quotaInfo.resetTime.flatMap { parseResetTime($0) }
 
             return UsageQuota(
@@ -347,11 +348,12 @@ public struct AntigravityUsageProbe: UsageProbe {
 
         let modelConfigs = response.clientModelConfigs ?? []
         let quotas = modelConfigs.compactMap { config -> UsageQuota? in
-            guard let quotaInfo = config.quotaInfo,
-                  let remainingFraction = quotaInfo.remainingFraction else {
+            guard let quotaInfo = config.quotaInfo else {
                 return nil
             }
 
+            // Missing remainingFraction means 0% remaining (quota exhausted)
+            let remainingFraction = quotaInfo.remainingFraction ?? 0.0
             let resetsAt = quotaInfo.resetTime.flatMap { parseResetTime($0) }
 
             return UsageQuota(

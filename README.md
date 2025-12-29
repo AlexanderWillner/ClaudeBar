@@ -76,7 +76,7 @@ A macOS menu bar application that monitors AI coding assistant usage quotas. Kee
   - [Codex CLI](https://github.com/openai/codex) (`codex`)
   - [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`gemini`)
   - [GitHub Copilot](https://github.com/features/copilot) - Configure credentials in Settings
-  - [Antigravity](https://codeium.com/antigravity) - Auto-detected when running locally
+  - [Antigravity](https://antigravity.google) - Auto-detected when running locally
 
 ## Installation
 

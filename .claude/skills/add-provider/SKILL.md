@@ -44,8 +44,8 @@ import Foundation
 struct {Provider}UsageProbeParsingTests {
 
     static let sampleResponse = """
-    { /* sample API/CLI response */ }
-    """
+                                { /* sample API/CLI response */ }
+                                """
 
     @Test func `parses quota into UsageQuota`() throws {
         let data = Data(Self.sampleResponse.utf8)
@@ -225,6 +225,14 @@ See [references/antigravity-example.md](references/antigravity-example.md) for a
 - Probe implementation with process detection
 - Provider class pattern
 
+## Provider Icon
+
+See [references/provider-icon-guide.md](references/provider-icon-guide.md) for creating provider icons:
+- SVG template with rounded rectangle background
+- PNG generation at 1x/2x/3x sizes
+- Asset catalog setup
+- ProviderVisualIdentity extension
+
 ## Checklist
 
 - [ ] Parsing tests created and passing
@@ -233,4 +241,7 @@ See [references/antigravity-example.md](references/antigravity-example.md) for a
 - [ ] Provider class created
 - [ ] Provider registered in ClaudeBarApp
 - [ ] Static accessor added to AIProviderRegistry
+- [ ] Provider icon SVG created with rounded rect background
+- [ ] Icon PNGs generated (64, 128, 192px)
+- [ ] ProviderVisualIdentity extension added
 - [ ] All 300+ existing tests still pass

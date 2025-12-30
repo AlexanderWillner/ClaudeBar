@@ -1,0 +1,320 @@
+import Foundation
+import Domain
+
+/// Z.ai platform detection
+enum ZaiPlatform: String, Sendable {
+    case zai = "https://api.z.ai"
+    case zhipu = "https://open.bigmodel.cn"
+    case dev = "https://dev.bigmodel.cn"
+}
+
+/// Probes the z.ai GLM Coding Plan for usage quota information.
+/// Z.ai works as an API-compatible replacement for Anthropic's API,
+/// configured through Claude Code's settings file.
+public struct ZaiUsageProbe: UsageProbe {
+
+    private let cliExecutor: any CLIExecutor
+    private let networkClient: any NetworkClient
+    private let timeout: TimeInterval
+
+    // Claude config file location
+    private static let claudeConfigPath = URL(fileURLWithPath: NSHomeDirectory())
+        .appendingPathComponent(".claude")
+        .appendingPathComponent("settings.json")
+
+    public init(
+        cliExecutor: (any CLIExecutor)? = nil,
+        networkClient: (any NetworkClient)? = nil,
+        timeout: TimeInterval = 10.0
+    ) {
+        self.cliExecutor = cliExecutor ?? DefaultCLIExecutor()
+        self.networkClient = networkClient ?? URLSession.shared
+        self.timeout = timeout
+    }
+
+    // MARK: - UsageProbe
+
+    public func isAvailable() async -> Bool {
+        // Check if Claude CLI is installed
+        guard cliExecutor.locate("claude") != nil else {
+            AppLog.probes.debug("Zai: Claude CLI not found")
+            return false
+        }
+
+        // Check if z.ai is configured in Claude settings
+        do {
+            let config = try await readClaudeConfig()
+            return Self.hasZaiEndpoint(in: config)
+        } catch {
+            AppLog.probes.debug("Zai: Could not read Claude config: \(error.localizedDescription)")
+            return false
+        }
+    }
+
+    public func probe() async throws -> UsageSnapshot {
+        AppLog.probes.info("Starting Z.ai probe...")
+
+        // Step 1: Verify Claude CLI is installed
+        guard cliExecutor.locate("claude") != nil else {
+            AppLog.probes.error("Zai probe failed: Claude CLI not found")
+            throw ProbeError.cliNotFound("Claude")
+        }
+
+        // Step 2: Read Claude config
+        let config: String
+        do {
+            config = try await readClaudeConfig()
+        } catch {
+            AppLog.probes.error("Zai probe failed: Could not read Claude config: \(error.localizedDescription)")
+            throw ProbeError.executionFailed("Could not read Claude config")
+        }
+
+        // Step 3: Detect platform and extract API key
+        guard let platform = Self.detectPlatform(from: config) else {
+            AppLog.probes.error("Zai probe failed: No z.ai endpoint found in Claude config")
+            throw ProbeError.authenticationRequired
+        }
+
+        guard let apiKey = Self.extractAPIKey(from: config) else {
+            AppLog.probes.error("Zai probe failed: No API key found in Claude config")
+            throw ProbeError.authenticationRequired
+        }
+
+        AppLog.probes.debug("Zai: Detected platform: \(platform.rawValue)")
+
+        // Step 4: Build API URL
+        let baseURL = platform.rawValue
+        guard let url = URL(string: "\(baseURL)/api/monitor/usage/quota/limit") else {
+            AppLog.probes.error("Zai probe failed: Invalid API URL")
+            throw ProbeError.executionFailed("Invalid API URL")
+        }
+
+        // Step 5: Make API request
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.timeoutInterval = timeout
+        request.setValue(apiKey, forHTTPHeaderField: "Authorization")
+        request.setValue("en-US,en", forHTTPHeaderField: "Accept-Language")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let (data, response) = try await networkClient.request(request)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            AppLog.probes.error("Zai probe failed: Invalid HTTP response")
+            throw ProbeError.executionFailed("Invalid HTTP response")
+        }
+
+        // Step 6: Handle HTTP errors
+        switch httpResponse.statusCode {
+        case 200...299:
+            break
+        case 401, 403:
+            AppLog.probes.error("Zai probe failed: Authentication failed (HTTP \(httpResponse.statusCode))")
+            throw ProbeError.authenticationRequired
+        default:
+            AppLog.probes.error("Zai probe failed: API returned HTTP \(httpResponse.statusCode)")
+            throw ProbeError.executionFailed("API returned HTTP \(httpResponse.statusCode)")
+        }
+
+        // Log raw response at debug level
+        if let responseText = String(data: data, encoding: .utf8) {
+            AppLog.probes.debug("Zai API response: \(responseText.prefix(500))")
+        }
+
+        // Step 7: Parse response
+        let snapshot = try Self.parseQuotaLimitResponse(data, providerId: "zai")
+
+        AppLog.probes.info("Zai probe success: \(snapshot.quotas.count) quotas found")
+        for quota in snapshot.quotas {
+            AppLog.probes.info("  - \(quota.quotaType.displayName): \(Int(quota.percentRemaining))% remaining")
+        }
+
+        return snapshot
+    }
+
+    // MARK: - Configuration Reading
+
+    private func readClaudeConfig() async throws -> String {
+        // Try reading the config file using cat command for consistency
+        let result = try cliExecutor.execute(
+            binary: "cat",
+            args: [Self.claudeConfigPath.path],
+            input: nil,
+            timeout: timeout,
+            workingDirectory: nil,
+            autoResponses: [:]
+        )
+
+        return result.output
+    }
+
+    // MARK: - Static Parsing Helpers
+
+    /// Checks if the Claude config contains a z.ai endpoint
+    internal static func hasZaiEndpoint(in config: String) -> Bool {
+        guard let platform = detectPlatform(from: config) else {
+            return false
+        }
+        return platform == .zai || platform == .zhipu || platform == .dev
+    }
+
+    /// Detects the z.ai platform from Claude config
+    internal static func detectPlatform(from config: String) -> ZaiPlatform? {
+        guard let data = config.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return nil
+        }
+
+        // Check env.ANTHROPIC_BASE_URL format (Claude Code default)
+        if let env = json["env"] as? [String: Any],
+           let baseURL = env["ANTHROPIC_BASE_URL"] as? String {
+            if baseURL.contains("api.z.ai") {
+                return .zai
+            }
+            if baseURL.contains("open.bigmodel.cn") {
+                return .zhipu
+            }
+            if baseURL.contains("dev.bigmodel.cn") {
+                return .dev
+            }
+        }
+
+        // Check providers array format
+        if let providers = json["providers"] as? [[String: Any]] {
+            for provider in providers {
+                if let baseURL = provider["base_url"] as? String {
+                    if baseURL.contains("api.z.ai") {
+                        return .zai
+                    }
+                    if baseURL.contains("open.bigmodel.cn") {
+                        return .zhipu
+                    }
+                    if baseURL.contains("dev.bigmodel.cn") {
+                        return .dev
+                    }
+                }
+            }
+        }
+
+        // Fallback: check for any key with z.ai URL
+        let jsonStr = config.lowercased()
+        if jsonStr.contains("api.z.ai") {
+            return .zai
+        }
+        if jsonStr.contains("open.bigmodel.cn") {
+            return .zhipu
+        }
+        if jsonStr.contains("dev.bigmodel.cn") {
+            return .dev
+        }
+
+        return nil
+    }
+
+    /// Extracts the API key from Claude config
+    internal static func extractAPIKey(from config: String) -> String? {
+        guard let data = config.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            return nil
+        }
+
+        // Check env.ANTHROPIC_AUTH_TOKEN format (Claude Code default)
+        if let env = json["env"] as? [String: Any],
+           let authToken = env["ANTHROPIC_AUTH_TOKEN"] as? String,
+           !authToken.isEmpty {
+            return authToken
+        }
+
+        // Check providers array for api_key
+        if let providers = json["providers"] as? [[String: Any]] {
+            for provider in providers {
+                if let apiKey = provider["api_key"] as? String, !apiKey.isEmpty {
+                    return apiKey
+                }
+            }
+        }
+
+        // Check for direct api_key field
+        if let apiKey = json["api_key"] as? String, !apiKey.isEmpty {
+            return apiKey
+        }
+
+        return nil
+    }
+
+    // MARK: - Response Parsing (Static for testability)
+
+    /// Parses the quota limit API response into a UsageSnapshot
+    internal static func parseQuotaLimitResponse(_ data: Data, providerId: String) throws -> UsageSnapshot {
+        let decoder = JSONDecoder()
+
+        let response: QuotaLimitResponse
+        do {
+            response = try decoder.decode(QuotaLimitResponse.self, from: data)
+        } catch {
+            AppLog.probes.error("Zai parse failed: Invalid JSON - \(error.localizedDescription)")
+            if let rawString = String(data: data, encoding: .utf8) {
+                AppLog.probes.debug("Zai raw response: \(rawString.prefix(500))")
+            }
+            throw ProbeError.parseFailed("Invalid JSON: \(error.localizedDescription)")
+        }
+
+        guard let limits = response.data?.limits, !limits.isEmpty else {
+            AppLog.probes.error("Zai parse failed: No quota limits found in response")
+            throw ProbeError.parseFailed("No quota limits found")
+        }
+
+        var quotas: [UsageQuota] = []
+
+        for limit in limits {
+            let quotaType: QuotaType
+            let percentageUsed = limit.percentage
+
+            switch limit.type {
+            case "TOKENS_LIMIT":
+                quotaType = .session
+            case "TIME_LIMIT":
+                quotaType = .modelSpecific("MCP")
+            default:
+                // Skip unknown limit types
+                continue
+            }
+
+            // Clamp percentage to 0-100 range
+            let clampedUsed = max(0, min(100, percentageUsed))
+            let percentRemaining = 100.0 - Double(clampedUsed)
+
+            quotas.append(UsageQuota(
+                percentRemaining: percentRemaining,
+                quotaType: quotaType,
+                providerId: providerId
+            ))
+        }
+
+        guard !quotas.isEmpty else {
+            AppLog.probes.error("Zai parse failed: No recognized quota types found")
+            throw ProbeError.parseFailed("No recognized quota types found")
+        }
+
+        return UsageSnapshot(
+            providerId: providerId,
+            quotas: quotas,
+            capturedAt: Date()
+        )
+    }
+}
+
+// MARK: - Response Models
+
+private struct QuotaLimitResponse: Decodable {
+    let data: QuotaLimitData?
+}
+
+private struct QuotaLimitData: Decodable {
+    let limits: [QuotaLimit]?
+}
+
+private struct QuotaLimit: Decodable {
+    let type: String
+    let percentage: Double
+}

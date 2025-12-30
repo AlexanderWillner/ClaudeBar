@@ -1,0 +1,96 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/DiagnosticExtensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/DiagnosticExtensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/DiagnosticExtensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/DiagnosticExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/DiagnosticExtensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/DiagnosticExtensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/LexerDiagnosticMessages.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/LexerDiagnosticMessages.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/LexerDiagnosticMessages.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/LexerDiagnosticMessages~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/LexerDiagnosticMessages.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/LexerDiagnosticMessages.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/MissingNodesError.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingNodesError.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingNodesError.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingNodesError~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingNodesError.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingNodesError.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/MissingTokenError.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingTokenError.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingTokenError.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingTokenError~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingTokenError.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MissingTokenError.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/MultiLineStringLiteralDiagnosticsGenerator.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MultiLineStringLiteralDiagnosticsGenerator.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MultiLineStringLiteralDiagnosticsGenerator.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MultiLineStringLiteralDiagnosticsGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MultiLineStringLiteralDiagnosticsGenerator.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/MultiLineStringLiteralDiagnosticsGenerator.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/ParseDiagnosticsGenerator.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParseDiagnosticsGenerator.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParseDiagnosticsGenerator.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParseDiagnosticsGenerator~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParseDiagnosticsGenerator.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParseDiagnosticsGenerator.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/ParserDiagnosticMessages.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParserDiagnosticMessages.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParserDiagnosticMessages.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParserDiagnosticMessages~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParserDiagnosticMessages.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ParserDiagnosticMessages.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/PresenceUtils.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/PresenceUtils.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/PresenceUtils.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/PresenceUtils~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/PresenceUtils.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/PresenceUtils.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/SyntaxExtensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxExtensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxExtensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxExtensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxExtensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/Utils.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/Utils.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/Utils.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/Utils~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/Utils.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/Utils.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/generated/ChildNameForDiagnostics.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ChildNameForDiagnostics.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ChildNameForDiagnostics.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ChildNameForDiagnostics~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ChildNameForDiagnostics.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/ChildNameForDiagnostics.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/generated/SyntaxKindNameForDiagnostics.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxKindNameForDiagnostics.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxKindNameForDiagnostics.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxKindNameForDiagnostics~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxKindNameForDiagnostics.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/SyntaxKindNameForDiagnostics.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/SwiftParserDiagnostics/generated/TokenNameForDiagnostics.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/TokenNameForDiagnostics.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/TokenNameForDiagnostics.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/TokenNameForDiagnostics~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/TokenNameForDiagnostics.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/TokenNameForDiagnostics.dia"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/ClaudeBarApp.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ClaudeBarApp.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ClaudeBarApp.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ClaudeBarApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ClaudeBarApp.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ClaudeBarApp.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Settings/AppSettings.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/AppSettings.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/AppSettings.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/AppSettings~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/AppSettings.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/AppSettings.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/SparkleUpdater.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SparkleUpdater.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SparkleUpdater.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SparkleUpdater~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SparkleUpdater.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SparkleUpdater.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/ComponentPreviews.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ComponentPreviews.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ComponentPreviews.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ComponentPreviews~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ComponentPreviews.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ComponentPreviews.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/CostStatCard.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/CostStatCard.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/CostStatCard.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/CostStatCard~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/CostStatCard.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/CostStatCard.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/MenuContentView.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/MenuContentView.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/MenuContentView.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/MenuContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/MenuContentView.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/MenuContentView.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/ProviderIcons.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderIcons.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderIcons.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderIcons~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderIcons.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderIcons.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/ProviderSectionView.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderSectionView.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderSectionView.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderSectionView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderSectionView.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderSectionView.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/ProviderVisualIdentity.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderVisualIdentity.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderVisualIdentity.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderVisualIdentity~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderVisualIdentity.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/ProviderVisualIdentity.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/QuotaCardView.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/QuotaCardView.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/QuotaCardView.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/QuotaCardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/QuotaCardView.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/QuotaCardView.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/SettingsView.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SettingsView.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/SettingsView.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/App/Views/Theme.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/Theme.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/Theme.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/Theme~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/Theme.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/Theme.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/DerivedSources/resource_bundle_accessor.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/resource_bundle_accessor.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/resource_bundle_accessor.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/resource_bundle_accessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/resource_bundle_accessor.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/ClaudeBar.build/resource_bundle_accessor.dia"
+  }
+}

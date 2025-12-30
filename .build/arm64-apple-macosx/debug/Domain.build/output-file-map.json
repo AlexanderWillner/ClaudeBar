@@ -1,0 +1,138 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Monitor/QuotaMonitor.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaMonitor.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaMonitor.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaMonitor~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaMonitor.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaMonitor.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Monitor/QuotaStatusListener.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatusListener.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatusListener.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatusListener~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatusListener.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatusListener.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/AIProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/AIProviderRegistry.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProviderRegistry.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProviderRegistry.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProviderRegistry~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProviderRegistry.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AIProviderRegistry.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/AccountTier.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AccountTier.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AccountTier.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AccountTier~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AccountTier.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AccountTier.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/AntigravityProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AntigravityProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AntigravityProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AntigravityProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AntigravityProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/AntigravityProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/BudgetStatus.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/BudgetStatus.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/BudgetStatus.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/BudgetStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/BudgetStatus.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/BudgetStatus.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/ClaudeProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ClaudeProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ClaudeProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ClaudeProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ClaudeProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ClaudeProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/CodexProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CodexProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CodexProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CodexProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CodexProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CodexProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/CopilotProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CopilotProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CopilotProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CopilotProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CopilotProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CopilotProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/CostUsage.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CostUsage.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CostUsage.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CostUsage~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CostUsage.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CostUsage.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/CredentialStore.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CredentialStore.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CredentialStore.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CredentialStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CredentialStore.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/CredentialStore.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/GeminiProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/GeminiProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/GeminiProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/GeminiProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/GeminiProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/GeminiProvider.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/ProbeError.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ProbeError.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ProbeError.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ProbeError~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ProbeError.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ProbeError.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/QuotaStatus.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatus.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatus.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatus.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaStatus.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/QuotaType.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaType.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaType.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaType~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaType.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/QuotaType.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/UsageQuota.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageQuota.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageQuota.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageQuota~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageQuota.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageQuota.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/UsageSnapshot.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageSnapshot.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageSnapshot.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageSnapshot~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageSnapshot.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/UsageSnapshot.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Domain/Provider/ZaiProvider.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ZaiProvider.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ZaiProvider.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ZaiProvider~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ZaiProvider.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Domain.build/ZaiProvider.dia"
+  }
+}

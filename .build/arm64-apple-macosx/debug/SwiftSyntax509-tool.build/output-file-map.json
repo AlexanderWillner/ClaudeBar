@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/swift-syntax/Sources/VersionMarkerModules/SwiftSyntax509/Empty.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/Empty.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/Empty.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/Empty~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/Empty.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntax509-tool.build/Empty.dia"
+  }
+}

@@ -1,0 +1,3 @@
+module SwiftSyntaxMacroExpansion {
+    header "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntaxMacroExpansion-tool.build/include/SwiftSyntaxMacroExpansion-Swift.h"
+}

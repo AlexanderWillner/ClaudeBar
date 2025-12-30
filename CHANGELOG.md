@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Z.ai GLM Coding Plan Support**: Monitor your Z.ai (GLM Coding Plan) usage quota. Automatically detects Z.ai configuration in Claude Code settings and queries the quota limit API for 5-hour session and MCP usage tracking.
+- **Provider Icon**: New Z.ai icon with blue branding in the provider list
+
+### Technical
+- Implemented `ZaiUsageProbe` with config file parsing (supports `env` and `providers` formats)
+- Added `ZaiProvider` domain model with observable state
+- Comprehensive test coverage (27 tests) for parsing, behavior, and error handling
+
 ## [0.2.7] - 2025-12-29
 
 ### Fixed

@@ -1,0 +1,3 @@
+module SwiftParserDiagnostics {
+    header "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftParserDiagnostics.build/include/SwiftParserDiagnostics-Swift.h"
+}

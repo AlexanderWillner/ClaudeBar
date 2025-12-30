@@ -1,0 +1,229 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/Builder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Builder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Builder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Builder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Builder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Builder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/FunctionActionBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionActionBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionActionBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionActionBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionActionBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionActionBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/FunctionReturnBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionReturnBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionReturnBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionReturnBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionReturnBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionReturnBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/FunctionVerifyBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionVerifyBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionVerifyBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionVerifyBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionVerifyBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/FunctionVerifyBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/ThrowingFunctionActionBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionActionBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionActionBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionActionBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionActionBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionActionBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/ThrowingFunctionReturnBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionReturnBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionReturnBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionReturnBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionReturnBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionReturnBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/FunctionBuilders/ThrowingFunctionVerifyBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionVerifyBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionVerifyBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionVerifyBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionVerifyBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ThrowingFunctionVerifyBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/MockableService.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableService.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableService.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableService~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableService.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableService.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/PropertyBuilders/PropertyActionBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyActionBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyActionBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyActionBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyActionBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyActionBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/PropertyBuilders/PropertyReturnBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyReturnBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyReturnBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyReturnBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyReturnBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyReturnBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Builder/PropertyBuilders/PropertyVerifyBuilder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyVerifyBuilder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyVerifyBuilder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyVerifyBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyVerifyBuilder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/PropertyVerifyBuilder.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Helpers/Async+Timeout.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Async+Timeout.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Async+Timeout.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Async+Timeout~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Async+Timeout.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Async+Timeout.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Helpers/AsyncSubject.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/AsyncSubject.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/AsyncSubject.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/AsyncSubject~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/AsyncSubject.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/AsyncSubject.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Helpers/LockedValue.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/LockedValue.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/LockedValue.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/LockedValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/LockedValue.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/LockedValue.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Macro/MockableMacro.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableMacro.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableMacro.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableMacro.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockableMacro.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Matcher/Matcher.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matcher.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matcher.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matcher~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matcher.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matcher.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/CaseIdentifiable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/CaseIdentifiable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/CaseIdentifiable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/CaseIdentifiable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/CaseIdentifiable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/CaseIdentifiable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/Matchable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matchable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matchable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matchable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matchable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Matchable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/MemberAction.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberAction.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberAction.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberAction~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberAction.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberAction.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/MemberReturn.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberReturn.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberReturn.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberReturn~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberReturn.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MemberReturn.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/Mocked.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocked.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocked.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocked~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocked.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocked.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/Mocker.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocker.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocker.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocker~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocker.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Mocker.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/MockerFallback.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerFallback.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerFallback.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerFallback~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerFallback.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerFallback.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/MockerPolicy.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerPolicy.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerPolicy.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerPolicy~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerPolicy.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerPolicy.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Mocker/MockerScope.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerScope.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerScope.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerScope~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerScope.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/MockerScope.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/Count.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Count.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Count.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Count~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Count.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Count.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/GenericValue.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/GenericValue.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/GenericValue.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/GenericValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/GenericValue.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/GenericValue.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/Parameter+Match.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter+Match.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter+Match.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter+Match~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter+Match.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter+Match.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/Parameter.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Parameter.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/ReturnValue.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ReturnValue.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ReturnValue.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ReturnValue~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ReturnValue.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/ReturnValue.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Models/TimeoutDuration.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/TimeoutDuration.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/TimeoutDuration.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/TimeoutDuration~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/TimeoutDuration.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/TimeoutDuration.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/Mockable/Utils/Utils.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Utils.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Utils.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Utils~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Utils.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Mockable.build/Utils.dia"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Monitor/QuotaMonitorTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaMonitorTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaMonitorTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaMonitorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaMonitorTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaMonitorTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AIProviderProtocolTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AIProviderProtocolTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AIProviderProtocolTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AIProviderProtocolTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AIProviderProtocolTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AIProviderProtocolTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AccountTierTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AccountTierTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AccountTierTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AccountTierTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AccountTierTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AccountTierTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AntigravityProviderTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AntigravityProviderTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AntigravityProviderTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AntigravityProviderTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AntigravityProviderTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/AntigravityProviderTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/CopilotProviderTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CopilotProviderTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CopilotProviderTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CopilotProviderTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CopilotProviderTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CopilotProviderTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/CostUsageTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CostUsageTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CostUsageTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CostUsageTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CostUsageTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/CostUsageTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/QuotaStatusTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaStatusTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaStatusTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaStatusTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaStatusTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaStatusTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/QuotaTypeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaTypeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaTypeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaTypeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaTypeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/QuotaTypeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/UsageQuotaTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageQuotaTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageQuotaTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageQuotaTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageQuotaTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageQuotaTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/UsageSnapshotTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageSnapshotTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageSnapshotTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageSnapshotTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageSnapshotTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/DomainTests.build/UsageSnapshotTests.dia"
+  }
+}

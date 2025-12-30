@@ -1,0 +1,180 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/BinaryLocator.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/BinaryLocator.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/BinaryLocator.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/BinaryLocator~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/BinaryLocator.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/BinaryLocator.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/DefaultCLIExecutor.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCLIExecutor.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCLIExecutor.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCLIExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCLIExecutor.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCLIExecutor.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/InsecureLocalhostNetworkClient.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InsecureLocalhostNetworkClient.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InsecureLocalhostNetworkClient.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InsecureLocalhostNetworkClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InsecureLocalhostNetworkClient.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InsecureLocalhostNetworkClient.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/InteractiveRunner.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InteractiveRunner.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InteractiveRunner.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InteractiveRunner~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InteractiveRunner.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/InteractiveRunner.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/ProcessRPCTransport.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ProcessRPCTransport.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ProcessRPCTransport.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ProcessRPCTransport~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ProcessRPCTransport.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ProcessRPCTransport.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/SystemAlertSender.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/SystemAlertSender.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/SystemAlertSender.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/SystemAlertSender~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/SystemAlertSender.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/SystemAlertSender.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Adapters/URLSessionNetworkClient.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/URLSessionNetworkClient.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/URLSessionNetworkClient.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/URLSessionNetworkClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/URLSessionNetworkClient.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/URLSessionNetworkClient.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/AntigravityUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AntigravityUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AntigravityUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AntigravityUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AntigravityUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AntigravityUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/CLIExecutor.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CLIExecutor.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CLIExecutor.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CLIExecutor~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CLIExecutor.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CLIExecutor.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/ClaudeUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ClaudeUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ClaudeUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ClaudeUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ClaudeUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ClaudeUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/CodexUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CodexUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CodexUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CodexUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CodexUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CodexUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/CopilotUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CopilotUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CopilotUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CopilotUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CopilotUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/CopilotUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/DefaultCodexRPCClient.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCodexRPCClient.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCodexRPCClient.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCodexRPCClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCodexRPCClient.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/DefaultCodexRPCClient.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/GeminiAPIProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiAPIProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiAPIProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiAPIProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiAPIProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiAPIProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/GeminiCLIProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiCLIProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiCLIProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiCLIProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiCLIProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiCLIProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/GeminiProject.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProject.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProject.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProject~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProject.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProject.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/GeminiProjectRepository.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProjectRepository.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProjectRepository.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProjectRepository~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProjectRepository.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiProjectRepository.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/GeminiUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/GeminiUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/RPCTransport.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/RPCTransport.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/RPCTransport.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/RPCTransport~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/RPCTransport.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/RPCTransport.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/CLI/ZaiUsageProbe.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ZaiUsageProbe.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ZaiUsageProbe.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ZaiUsageProbe~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ZaiUsageProbe.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/ZaiUsageProbe.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Logging/AppLogger.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AppLogger.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AppLogger.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AppLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AppLogger.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/AppLogger.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Logging/FileLogger.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/FileLogger.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/FileLogger.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/FileLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/FileLogger.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/FileLogger.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Network/NetworkClient.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/NetworkClient.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/NetworkClient.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/NetworkClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/NetworkClient.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/NetworkClient.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Notifications/QuotaAlerter.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/QuotaAlerter.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/QuotaAlerter.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/QuotaAlerter~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/QuotaAlerter.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/QuotaAlerter.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Sources/Infrastructure/Storage/UserDefaultsCredentialStore.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/UserDefaultsCredentialStore.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/UserDefaultsCredentialStore.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/UserDefaultsCredentialStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/UserDefaultsCredentialStore.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/Infrastructure.build/UserDefaultsCredentialStore.dia"
+  }
+}

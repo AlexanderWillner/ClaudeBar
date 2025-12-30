@@ -1,0 +1,3 @@
+module SwiftSyntaxBuilder {
+    header "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/SwiftSyntaxBuilder.build/include/SwiftSyntaxBuilder-Swift.h"
+}

@@ -27,7 +27,7 @@
 >
 > **Happy Holidays!** ❤️🎁
 
-A macOS menu bar application that monitors AI coding assistant usage quotas. Keep track of your Claude, Codex, Gemini, GitHub Copilot, and Antigravity usage at a glance.
+A macOS menu bar application that monitors AI coding assistant usage quotas. Keep track of your Claude, Codex, Gemini, GitHub Copilot, Antigravity, and Z.ai usage at a glance.
 
 <p align="center">
   <img src="docs/Screenshot-dark.png" alt="ClaudeBar Dark Mode" width="380"/>
@@ -49,7 +49,7 @@ A macOS menu bar application that monitors AI coding assistant usage quotas. Kee
 
 ## Features
 
-- **Multi-Provider Support** - Monitor Claude, Codex, Gemini, GitHub Copilot, and Antigravity quotas in one place
+- **Multi-Provider Support** - Monitor Claude, Codex, Gemini, GitHub Copilot, Antigravity, and Z.ai quotas in one place
 - **Real-Time Quota Tracking** - View Session, Weekly, and Model-specific usage percentages
 - **Light & Dark Themes** - Automatically adapts to your system appearance
 - **Seasonal Themes** - Festive Christmas theme with snowfall animation, auto-enabled during the holiday season
@@ -77,6 +77,7 @@ A macOS menu bar application that monitors AI coding assistant usage quotas. Kee
   - [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`gemini`)
   - [GitHub Copilot](https://github.com/features/copilot) - Configure credentials in Settings
   - [Antigravity](https://antigravity.google) - Auto-detected when running locally
+  - [Z.ai](https://z.ai/subscribe) - Configure Claude Code with GLM Coding Plan endpoint
 
 ## Installation
 

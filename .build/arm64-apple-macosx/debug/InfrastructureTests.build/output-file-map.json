@@ -1,0 +1,152 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/AntigravityUsageProbeParsingTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeParsingTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeParsingTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeParsingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeParsingTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeParsingTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/AntigravityUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/AntigravityUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/BinaryLocatorTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/BinaryLocatorTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/BinaryLocatorTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/BinaryLocatorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/BinaryLocatorTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/BinaryLocatorTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/CLIResultTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CLIResultTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CLIResultTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CLIResultTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CLIResultTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CLIResultTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/ClaudeUsageProbeParsingTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeParsingTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeParsingTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeParsingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeParsingTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeParsingTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/ClaudeUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ClaudeUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/CodexUsageProbeParsingTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeParsingTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeParsingTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeParsingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeParsingTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeParsingTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/CodexUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CodexUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/CopilotUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CopilotUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CopilotUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CopilotUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CopilotUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/CopilotUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/DefaultCodexRPCClientTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/DefaultCodexRPCClientTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/DefaultCodexRPCClientTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/DefaultCodexRPCClientTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/DefaultCodexRPCClientTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/DefaultCodexRPCClientTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiAPIProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiAPIProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiAPIProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiAPIProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiAPIProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiAPIProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiCLIProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiCLIProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiCLIProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiCLIProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiCLIProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiCLIProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiProjectRepositoryTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectRepositoryTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectRepositoryTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectRepositoryTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectRepositoryTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectRepositoryTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiProjectTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiProjectTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiUsageProbeParsingTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeParsingTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeParsingTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeParsingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeParsingTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeParsingTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/GeminiUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/GeminiUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/InteractiveRunnerTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/InteractiveRunnerTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/InteractiveRunnerTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/InteractiveRunnerTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/InteractiveRunnerTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/InteractiveRunnerTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/ZaiUsageProbeParsingTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeParsingTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeParsingTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeParsingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeParsingTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeParsingTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/CLI/ZaiUsageProbeTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/ZaiUsageProbeTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/Notifications/QuotaAlerterTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/QuotaAlerterTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/QuotaAlerterTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/QuotaAlerterTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/QuotaAlerterTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/QuotaAlerterTests.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/Tests/InfrastructureTests/UserDefaultsCredentialStoreTests.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/UserDefaultsCredentialStoreTests.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/UserDefaultsCredentialStoreTests.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/UserDefaultsCredentialStoreTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/UserDefaultsCredentialStoreTests.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/InfrastructureTests.build/UserDefaultsCredentialStoreTests.dia"
+  }
+}

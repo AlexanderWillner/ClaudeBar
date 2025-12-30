@@ -1,0 +1,10 @@
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Monitor/QuotaMonitorTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AIProviderProtocolTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AccountTierTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/AntigravityProviderTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/CopilotProviderTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/CostUsageTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/QuotaStatusTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/QuotaTypeTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/UsageQuotaTests.swift
+/Users/aw/Repository/ClaudeBar/Tests/DomainTests/Provider/UsageSnapshotTests.swift

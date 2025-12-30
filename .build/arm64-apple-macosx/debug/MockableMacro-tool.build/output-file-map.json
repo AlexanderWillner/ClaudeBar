@@ -1,0 +1,278 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/master.swiftdeps"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/AttributeListSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeListSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeListSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeListSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeListSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeListSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/AttributeSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/AttributeSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/DeclModifierListSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/DeclModifierListSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/DeclModifierListSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/DeclModifierListSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/DeclModifierListSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/DeclModifierListSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/FunctionDeclSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionDeclSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionDeclSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionDeclSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionDeclSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionDeclSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/FunctionParameterSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionParameterSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionParameterSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionParameterSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionParameterSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionParameterSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/GenericArgumentSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/GenericArgumentSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/GenericArgumentSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/GenericArgumentSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/GenericArgumentSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/GenericArgumentSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/ProtocolDeclSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ProtocolDeclSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ProtocolDeclSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ProtocolDeclSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ProtocolDeclSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ProtocolDeclSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/String+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/String+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/String+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/String+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/String+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/String+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/TokenSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Extensions/VariableDeclSyntax+Extensions.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableDeclSyntax+Extensions.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableDeclSyntax+Extensions.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableDeclSyntax+Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableDeclSyntax+Extensions.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableDeclSyntax+Extensions.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Buildable/Buildable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Buildable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Buildable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Buildable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Buildable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Buildable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Buildable/Function+Buildable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Buildable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Buildable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Buildable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Buildable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Buildable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Buildable/Variable+Buildable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Buildable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Buildable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Buildable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Buildable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Buildable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/BuilderFactory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/BuilderFactory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/BuilderFactory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/BuilderFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/BuilderFactory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/BuilderFactory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Caseable/Caseable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Caseable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Caseable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Caseable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Caseable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Caseable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Caseable/Function+Caseable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Caseable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Caseable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Caseable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Caseable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Caseable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Caseable/Variable+Caseable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Caseable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Caseable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Caseable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Caseable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Caseable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/ConformanceFactory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ConformanceFactory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ConformanceFactory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ConformanceFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ConformanceFactory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/ConformanceFactory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/EnumFactory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/EnumFactory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/EnumFactory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/EnumFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/EnumFactory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/EnumFactory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Factory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Factory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Factory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Factory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Factory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Factory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/MemberFactory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MemberFactory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MemberFactory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MemberFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MemberFactory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MemberFactory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/MockFactory.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockFactory.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockFactory.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockFactory.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockFactory.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Mockable/Function+Mockable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Mockable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Mockable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Mockable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Mockable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Function+Mockable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Mockable/Initializer+Mockable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Initializer+Mockable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Initializer+Mockable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Initializer+Mockable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Initializer+Mockable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Initializer+Mockable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Mockable/Mockable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Mockable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Mockable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Mockable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Mockable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Mockable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Factory/Mockable/Variable+Mockable.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Mockable.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Mockable.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Mockable~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Mockable.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Variable+Mockable.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/MockableMacro.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacro.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacro.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacro~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacro.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacro.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/MockableMacroError.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroError.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroError.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroError~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroError.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroError.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/MockableMacroWarning.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroWarning.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroWarning.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroWarning~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroWarning.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/MockableMacroWarning.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Plugin.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Plugin.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Plugin.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Plugin~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Plugin.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Plugin.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Requirements/FunctionRequirement.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionRequirement.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionRequirement.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionRequirement~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionRequirement.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/FunctionRequirement.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Requirements/InitializerRequirement.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/InitializerRequirement.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/InitializerRequirement.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/InitializerRequirement~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/InitializerRequirement.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/InitializerRequirement.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Requirements/Requirements.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Requirements.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Requirements.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Requirements~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Requirements.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Requirements.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Requirements/VariableRequirement.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableRequirement.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableRequirement.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableRequirement~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableRequirement.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/VariableRequirement.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Utils/Availability.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Availability.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Availability.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Availability~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Availability.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Availability.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Utils/Messages.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Messages.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Messages.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Messages~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Messages.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Messages.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Utils/Namespace.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Namespace.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Namespace.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Namespace~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Namespace.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/Namespace.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Utils/SwiftVersionHelper.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/SwiftVersionHelper.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/SwiftVersionHelper.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/SwiftVersionHelper~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/SwiftVersionHelper.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/SwiftVersionHelper.dia"
+  },
+  "/Users/aw/Repository/ClaudeBar/.build/checkouts/Mockable/Sources/MockableMacro/Utils/TokenFinder.swift": {
+    "dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenFinder.d",
+    "object": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenFinder.swift.o",
+    "swiftmodule": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenFinder~partial.swiftmodule",
+    "swift-dependencies": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenFinder.swiftdeps",
+    "diagnostics": "/Users/aw/Repository/ClaudeBar/.build/arm64-apple-macosx/debug/MockableMacro-tool.build/TokenFinder.dia"
+  }
+}

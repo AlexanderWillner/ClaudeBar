@@ -1,4 +1,6 @@
+.build
 .DS_Store
+Package.resolved
 
 # Tuist generated (regenerate with: tuist generate)
 *.xcodeproj

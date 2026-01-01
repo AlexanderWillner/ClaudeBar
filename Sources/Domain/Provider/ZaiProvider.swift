@@ -20,6 +20,13 @@ public final class ZaiProvider: AIProvider, @unchecked Sendable {
         URL(string: "https://docs.z.ai/devpack/faq")
     }
 
+    /// Whether the provider is enabled (persisted to UserDefaults)
+    public var isEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isEnabled, forKey: "provider.zai.isEnabled")
+        }
+    }
+
     // MARK: - State (Observable)
 
     /// Whether the provider is currently syncing data

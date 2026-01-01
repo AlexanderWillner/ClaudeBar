@@ -19,6 +19,13 @@ public final class GeminiProvider: AIProvider, @unchecked Sendable {
         URL(string: "https://status.cloud.google.com")
     }
 
+    /// Whether the provider is enabled (persisted to UserDefaults)
+    public var isEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isEnabled, forKey: "provider.gemini.isEnabled")
+        }
+    }
+
     // MARK: - State (Observable)
 
     public private(set) var isSyncing: Bool = false

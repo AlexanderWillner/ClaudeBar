@@ -19,6 +19,13 @@ public final class CodexProvider: AIProvider, @unchecked Sendable {
         URL(string: "https://status.openai.com")
     }
 
+    /// Whether the provider is enabled (persisted to UserDefaults)
+    public var isEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isEnabled, forKey: "provider.codex.isEnabled")
+        }
+    }
+
     // MARK: - State (Observable)
 
     public private(set) var isSyncing: Bool = false

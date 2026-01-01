@@ -26,9 +26,9 @@ struct MenuContentView: View {
     @State private var settings = AppSettings.shared
     @State private var hasRequestedNotificationPermission = false
 
-    /// The currently selected provider
+    /// The currently selected provider (only from enabled providers)
     private var selectedProvider: (any AIProvider)? {
-        appState.providers.first { $0.id == selectedProviderId }
+        appState.providers.first { $0.id == selectedProviderId && $0.isEnabled }
     }
 
     var body: some View {
@@ -266,10 +266,15 @@ struct MenuContentView: View {
 
     // MARK: - Provider Pills
 
+    /// Only show enabled providers in the pills
+    private var enabledProviders: [any AIProvider] {
+        appState.providers.filter { $0.isEnabled }
+    }
+
     private var providerPills: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
-                ForEach(appState.providers, id: \.id) { provider in
+                ForEach(enabledProviders, id: \.id) { provider in
                     ProviderPill(
                         providerId: provider.id,
                         providerName: provider.name,
@@ -287,6 +292,13 @@ struct MenuContentView: View {
         .opacity(animateIn ? 1 : 0)
         .offset(y: animateIn ? 0 : 10)
         .animation(.easeOut(duration: 0.5).delay(0.1), value: animateIn)
+        .onChange(of: enabledProviders.map(\.id)) { _, newIds in
+            // If currently selected provider is disabled, select first enabled one
+            if !newIds.contains(selectedProviderId), let firstId = newIds.first {
+                selectedProviderId = firstId
+                appState.selectedProviderId = firstId
+            }
+        }
     }
 
     // MARK: - Metrics Content

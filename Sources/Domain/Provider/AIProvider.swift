@@ -22,8 +22,8 @@ public protocol AIProvider: AnyObject, Sendable, Identifiable where ID == String
     /// URL to the provider's status page
     var statusPageURL: URL? { get }
 
-    /// Whether the provider is enabled
-    var isEnabled: Bool { get }
+    /// Whether the provider is enabled (user can toggle this)
+    var isEnabled: Bool { get set }
 
     // MARK: - State (Observable)
 
@@ -49,9 +49,6 @@ public protocol AIProvider: AnyObject, Sendable, Identifiable where ID == String
 // MARK: - Default Implementations
 
 public extension AIProvider {
-    /// Default: enabled
-    var isEnabled: Bool { true }
-
     /// Default: no status page
     var statusPageURL: URL? { nil }
 }

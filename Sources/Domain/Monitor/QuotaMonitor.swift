@@ -12,8 +12,8 @@ public enum MonitoringEvent: Sendable {
 /// Providers are rich domain models that own their own snapshots.
 /// QuotaMonitor coordinates refreshes and optionally notifies a status handler.
 public actor QuotaMonitor {
-    /// All registered providers
-    private let providers: [any AIProvider]
+    /// The providers repository
+    public let providers: AIProviders
 
     /// Optional listener for status changes (e.g., QuotaAlerter)
     private let statusListener: (any QuotaStatusListener)?
@@ -29,21 +29,32 @@ public actor QuotaMonitor {
 
     // MARK: - Initialization
 
+    /// Creates a QuotaMonitor with an AIProviders repository
     public init(
-        providers: [any AIProvider],
+        providers: AIProviders,
         statusListener: (any QuotaStatusListener)? = nil
     ) {
         self.providers = providers
         self.statusListener = statusListener
     }
 
+    /// Convenience initializer that creates an AIProviders repository from an array
+    public init(
+        providers: [any AIProvider],
+        statusListener: (any QuotaStatusListener)? = nil
+    ) {
+        self.providers = AIProviders(providers: providers)
+        self.statusListener = statusListener
+    }
+
     // MARK: - Monitoring Operations
 
-    /// Refreshes all registered providers concurrently.
+    /// Refreshes all enabled providers concurrently.
     /// Each provider updates its own snapshot.
+    /// Disabled providers are skipped.
     public func refreshAll() async {
         await withTaskGroup(of: Void.self) { group in
-            for provider in providers {
+            for provider in providers.enabled {
                 group.addTask {
                     await self.refreshProvider(provider)
                 }
@@ -84,15 +95,15 @@ public actor QuotaMonitor {
 
     /// Refreshes a single provider by its ID.
     public func refresh(providerId: String) async {
-        guard let provider = providers.first(where: { $0.id == providerId }) else {
+        guard let provider = providers.provider(id: providerId) else {
             return
         }
         await refreshProvider(provider)
     }
 
-    /// Refreshes all providers except the specified one.
+    /// Refreshes all enabled providers except the specified one.
     public func refreshOthers(except providerId: String) async {
-        let otherProviders = providers.filter { $0.id != providerId }
+        let otherProviders = providers.enabled.filter { $0.id != providerId }
 
         await withTaskGroup(of: Void.self) { group in
             for provider in otherProviders {
@@ -107,24 +118,29 @@ public actor QuotaMonitor {
 
     /// Returns the provider with the given ID
     public func provider(for id: String) -> (any AIProvider)? {
-        providers.first { $0.id == id }
+        providers.provider(id: id)
     }
 
     /// Returns all providers
     public var allProviders: [any AIProvider] {
-        providers
+        providers.all
     }
 
-    /// Returns the lowest quota across all monitored providers
+    /// Returns only enabled providers
+    public var enabledProviders: [any AIProvider] {
+        providers.enabled
+    }
+
+    /// Returns the lowest quota across all enabled providers
     public func lowestQuota() -> UsageQuota? {
-        providers
+        providers.enabled
             .compactMap(\.snapshot?.lowestQuota)
             .min()
     }
 
-    /// Returns the overall status across all providers (worst status wins)
+    /// Returns the overall status across enabled providers (worst status wins)
     public func overallStatus() -> QuotaStatus {
-        providers
+        providers.enabled
             .compactMap(\.snapshot?.overallStatus)
             .max() ?? .healthy
     }

@@ -20,6 +20,13 @@ public final class ClaudeProvider: AIProvider, @unchecked Sendable {
         URL(string: "https://status.anthropic.com")
     }
 
+    /// Whether the provider is enabled (persisted to UserDefaults)
+    public var isEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isEnabled, forKey: "provider.claude.isEnabled")
+        }
+    }
+
     // MARK: - State (Observable)
 
     /// Whether the provider is currently syncing data

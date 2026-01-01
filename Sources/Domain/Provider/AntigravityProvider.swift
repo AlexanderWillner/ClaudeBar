@@ -20,6 +20,13 @@ public final class AntigravityProvider: AIProvider, @unchecked Sendable {
         nil  // No external status page
     }
 
+    /// Whether the provider is enabled (persisted to UserDefaults)
+    public var isEnabled: Bool = true {
+        didSet {
+            UserDefaults.standard.set(isEnabled, forKey: "provider.antigravity.isEnabled")
+        }
+    }
+
     // MARK: - State (Observable)
 
     /// Whether the provider is currently syncing data

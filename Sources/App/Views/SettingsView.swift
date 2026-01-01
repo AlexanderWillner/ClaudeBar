@@ -37,6 +37,7 @@ struct SettingsContentView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 12) {
                     themeCard
+                    providersCard
                     claudeBudgetCard
                     copilotCard
                     #if ENABLE_SPARKLE
@@ -140,6 +141,92 @@ struct SettingsContentView: View {
                         )
                 )
         )
+    }
+
+    // MARK: - Providers Card
+
+    private var providersCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Header
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .fill(
+                            isChristmas
+                                ? AppTheme.christmasAccentGradient
+                                : AppTheme.accentGradient(for: colorScheme)
+                        )
+                        .frame(width: 32, height: 32)
+
+                    Image(systemName: "cpu")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Providers")
+                        .font(AppTheme.titleFont(size: 14))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+
+                    Text("Enable or disable AI providers")
+                        .font(AppTheme.captionFont(size: 10))
+                        .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                }
+
+                Spacer()
+            }
+
+            // Provider toggles
+            VStack(spacing: 8) {
+                ForEach(appState.providers, id: \.id) { provider in
+                    providerToggleRow(provider: provider)
+                }
+            }
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(isChristmas ? AppTheme.christmasCardGradient : AppTheme.cardGradient(for: colorScheme))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(
+                            LinearGradient(
+                                colors: isChristmas
+                                    ? [AppTheme.christmasGold.opacity(0.4), AppTheme.christmasGold.opacity(0.2)]
+                                    : [
+                                        colorScheme == .dark ? Color.white.opacity(0.25) : AppTheme.purpleVibrant(for: colorScheme).opacity(0.18),
+                                        colorScheme == .dark ? Color.white.opacity(0.08) : AppTheme.pinkHot(for: colorScheme).opacity(0.08)
+                                    ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+        )
+    }
+
+    private func providerToggleRow(provider: any AIProvider) -> some View {
+        HStack(spacing: 10) {
+            // Provider icon
+            ProviderIconView(providerId: provider.id, size: 20)
+
+            Text(provider.name)
+                .font(AppTheme.bodyFont(size: 12))
+                .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+
+            Spacer()
+
+            Toggle("", isOn: Binding(
+                get: { provider.isEnabled },
+                set: { provider.isEnabled = $0 }
+            ))
+            .toggleStyle(.switch)
+            .tint(AppTheme.purpleVibrant(for: colorScheme))
+            .scaleEffect(0.8)
+            .labelsHidden()
+        }
+        .padding(.vertical, 4)
     }
 
     // MARK: - Header

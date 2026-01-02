@@ -7,26 +7,6 @@
 [![Swift 6.2](https://img.shields.io/badge/Swift-6.2-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-macOS%2015-blue.svg)](https://developer.apple.com)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/🎄-Merry_Christmas-red?style=for-the-badge" alt="Merry Christmas"/>
-  <img src="https://img.shields.io/badge/❄️-Happy_Holidays-blue?style=for-the-badge" alt="Happy Holidays"/>
-  <img src="https://img.shields.io/badge/🎁-2025-green?style=for-the-badge" alt="2025"/>
-</p>
-
-> 🎄✨ **Merry Christmas Eve, everyone!** ✨🎄
->
-> Wishing warmth, joy, and peace to all who celebrate. May your holidays be filled with love and laughter.
->
-> Time to slow down, enjoy the magic, and celebrate with the people who matter most.
->
-> However you spend tonight - we hope it's filled with joy 🎄
->
-> May your code be bug-free, your quotas stay green, and your builds always succeed! 🚀
->
-> *(P.S. Check ClaudeBar for a snowy surprise ❄️)*
->
-> **Happy Holidays!** ❤️🎁
-
 A macOS menu bar application that monitors AI coding assistant usage quotas. Keep track of your Claude, Codex, Gemini, GitHub Copilot, Antigravity, and Z.ai usage at a glance.
 
 <p align="center">
@@ -50,6 +30,7 @@ A macOS menu bar application that monitors AI coding assistant usage quotas. Kee
 ## Features
 
 - **Multi-Provider Support** - Monitor Claude, Codex, Gemini, GitHub Copilot, Antigravity, and Z.ai quotas in one place
+- **Provider Enable/Disable** - Toggle individual providers on/off from Settings to customize your monitoring
 - **Real-Time Quota Tracking** - View Session, Weekly, and Model-specific usage percentages
 - **Light & Dark Themes** - Automatically adapts to your system appearance
 - **Seasonal Themes** - Festive Christmas theme with snowfall animation, auto-enabled during the holiday season
@@ -162,12 +143,18 @@ ClaudeBar uses a layered architecture with `QuotaMonitor` as the single source o
 │                                                          │
 │  AIProvider - Rich domain model with isEnabled state    │
 │  Models: UsageQuota, UsageSnapshot, QuotaStatus         │
+│                                                          │
+│  Repository Protocols (Injected Dependencies)           │
+│  ├── ProviderSettingsRepository - persists isEnabled    │
+│  └── CredentialRepository - stores tokens/credentials   │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
 │                 Infrastructure Layer                     │
 │  Probes: Claude, Codex, Gemini, Copilot, Antigravity, Z.ai │
+│  Storage: UserDefaultsProviderSettingsRepository,       │
+│           UserDefaultsCredentialRepository              │
 │  Adapters: Pure 3rd-party wrappers (no coverage)        │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -176,8 +163,10 @@ ClaudeBar uses a layered architecture with `QuotaMonitor` as the single source o
 
 - **Rich Domain Models** - Business logic lives in domain models, not ViewModels
 - **Single Source of Truth** - `QuotaMonitor` owns all provider state and selection
+- **Repository Pattern** - Settings and credentials abstracted behind injectable protocols
 - **Actor-Based Concurrency** - Thread-safe state management with Swift actors
 - **Protocol-Based DI** - `@Mockable` protocols enable testability without real CLI/network
+- **Chicago School TDD** - Tests verify state changes, not method call interactions
 - **Adapters Folder** - Pure 3rd-party wrappers excluded from code coverage
 - **No ViewModel/AppState Layer** - SwiftUI views directly consume `QuotaMonitor`
 

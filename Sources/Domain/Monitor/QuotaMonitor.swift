@@ -34,13 +34,15 @@ public final class QuotaMonitor: @unchecked Sendable {
 
     // MARK: - Initialization
 
-    /// Creates a QuotaMonitor with a provider repository
+    /// Creates a QuotaMonitor with a provider repository.
+    /// Automatically validates the selected provider on initialization.
     public init(
         providers: any AIProviderRepository,
         alerter: (any QuotaAlerter)? = nil
     ) {
         self.providers = providers
         self.alerter = alerter
+        selectFirstEnabledIfNeeded()
     }
 
     // MARK: - Monitoring Operations
@@ -175,22 +177,23 @@ public final class QuotaMonitor: @unchecked Sendable {
         }
     }
 
-    /// Selects the first enabled provider if current selection is invalid
-    public func ensureValidSelection() {
-        if !providers.enabled.contains(where: { $0.id == selectedProviderId }),
-           let firstEnabled = providers.enabled.first {
-            selectedProviderId = firstEnabled.id
-        }
-    }
-
-    /// Sets a provider's enabled state and ensures valid selection.
-    /// Use this instead of setting provider.isEnabled directly to ensure
-    /// the selected provider remains valid when a provider is disabled.
+    /// Sets a provider's enabled state.
+    /// When disabling the currently selected provider, automatically switches
+    /// to the first available enabled provider.
     public func setProviderEnabled(_ id: String, enabled: Bool) {
         guard let provider = providers.provider(id: id) else { return }
         provider.isEnabled = enabled
         if !enabled {
-            ensureValidSelection()
+            selectFirstEnabledIfNeeded()
+        }
+    }
+
+    /// Selects the first enabled provider if current selection is invalid.
+    /// Called automatically during initialization and when providers are disabled.
+    private func selectFirstEnabledIfNeeded() {
+        if !providers.enabled.contains(where: { $0.id == selectedProviderId }),
+           let firstEnabled = providers.enabled.first {
+            selectedProviderId = firstEnabled.id
         }
     }
 

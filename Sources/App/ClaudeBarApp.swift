@@ -40,14 +40,11 @@ struct ClaudeBarApp: App {
         AppLog.providers.info("Created \(repository.all.count) providers")
 
         // Initialize the domain service with quota alerter
+        // QuotaMonitor automatically validates selected provider on init
         monitor = QuotaMonitor(
             providers: repository,
             alerter: quotaAlerter
         )
-
-        // Ensure the selected provider is valid (e.g., if Claude was disabled before restart)
-        monitor.ensureValidSelection()
-
         AppLog.monitor.info("QuotaMonitor initialized")
 
         // Note: Notification permission is requested in onAppear, not here

@@ -499,51 +499,31 @@ struct QuotaMonitorTests {
     }
 
     @Test
-    func `ensureValidSelection picks first enabled when current is invalid`() {
-        // Given
+    func `init selects first enabled when default claude is disabled`() {
+        // Given - claude (default) is disabled before init
         let settings = makeSettingsRepository()
         let claude = ClaudeProvider(probe: MockUsageProbe(), settingsRepository: settings)
         let codex = CodexProvider(probe: MockUsageProbe(), settingsRepository: settings)
-        let monitor = QuotaMonitor(providers: AIProviders(providers: [claude, codex]))
-        monitor.selectedProviderId = "unknown"
+        claude.isEnabled = false
 
         // When
-        monitor.ensureValidSelection()
-
-        // Then
-        #expect(monitor.selectedProviderId == "claude")
-    }
-
-    @Test
-    func `ensureValidSelection keeps valid selection`() {
-        // Given
-        let settings = makeSettingsRepository()
-        let claude = ClaudeProvider(probe: MockUsageProbe(), settingsRepository: settings)
-        let codex = CodexProvider(probe: MockUsageProbe(), settingsRepository: settings)
         let monitor = QuotaMonitor(providers: AIProviders(providers: [claude, codex]))
-        monitor.selectedProviderId = "codex"
 
-        // When
-        monitor.ensureValidSelection()
-
-        // Then - keeps codex
+        // Then - automatically selects codex (first enabled)
         #expect(monitor.selectedProviderId == "codex")
     }
 
     @Test
-    func `ensureValidSelection updates when selected provider becomes disabled`() {
+    func `init keeps claude when enabled`() {
         // Given
         let settings = makeSettingsRepository()
         let claude = ClaudeProvider(probe: MockUsageProbe(), settingsRepository: settings)
         let codex = CodexProvider(probe: MockUsageProbe(), settingsRepository: settings)
-        let monitor = QuotaMonitor(providers: AIProviders(providers: [claude, codex]))
-        monitor.selectedProviderId = "codex"
-        codex.isEnabled = false
 
         // When
-        monitor.ensureValidSelection()
+        let monitor = QuotaMonitor(providers: AIProviders(providers: [claude, codex]))
 
-        // Then - switches to claude
+        // Then - keeps default claude
         #expect(monitor.selectedProviderId == "claude")
     }
 

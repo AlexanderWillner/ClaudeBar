@@ -604,8 +604,6 @@ struct SettingsContentView: View {
                             )
                     }
                     .buttonStyle(.plain)
-
-
                 }
 
                 // Status messages
@@ -1220,21 +1218,26 @@ struct SettingsContentView: View {
         // Save current inputs
         settings.copilotAuthEnvVar = copilotAuthEnvVarInput
         if !copilotTokenInput.isEmpty {
+            AppLog.credentials.info("Saving Copilot token for connection test")
             copilotProvider?.saveToken(copilotTokenInput)
             copilotTokenInput = ""
         }
 
         do {
             // Try to refresh the copilot provider
+            AppLog.credentials.info("Testing Copilot connection via provider refresh")
             await monitor.refresh(providerId: "copilot")
 
             // Check if there's an error after refresh
             if let error = monitor.provider(for: "copilot")?.lastError {
+                AppLog.credentials.error("Copilot connection test failed: \(error.localizedDescription)")
                 copilotTestResult = "Failed: \(error.localizedDescription)"
             } else {
+                AppLog.credentials.info("Copilot connection test succeeded")
                 copilotTestResult = "Success: Connection verified"
             }
         } catch {
+            AppLog.credentials.error("Copilot connection test threw error: \(error.localizedDescription)")
             copilotTestResult = "Failed: \(error.localizedDescription)"
         }
 

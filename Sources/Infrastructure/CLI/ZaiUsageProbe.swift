@@ -160,16 +160,9 @@ public struct ZaiUsageProbe: UsageProbe {
     // MARK: - Configuration Reading
 
     private func readClaudeConfig() async throws -> (config: String, path: String) {
-        // Use custom path if set, otherwise use default
-        let customPath = UserDefaults.standard.string(forKey: "zaiConfigPath")
-        let configPath: URL
-        if let customPath = customPath, !customPath.isEmpty {
-            configPath = URL(fileURLWithPath: customPath)
-            AppLog.probes.debug("Using custom Z.ai config path: \(customPath)")
-        } else {
-            configPath = Self.defaultConfigPath
-            AppLog.probes.debug("Using default Z.ai config path: \(configPath.path)")
-        }
+        // Use AppSettings helper for consistent path resolution
+        let configPath = AppSettings.zaiConfigURL()
+        AppLog.probes.debug("Using Z.ai config path: \(configPath.path)")
 
         // Try reading the config file using cat command for consistency
         let result = try cliExecutor.execute(

@@ -43,7 +43,10 @@ public struct ZaiUsageProbe: UsageProbe {
     public func isAvailable() async -> Bool {
         // Check if Claude CLI is installed
         guard cliExecutor.locate("claude") != nil else {
-            AppLog.probes.debug("Zai: Claude CLI not found")
+            let env = ProcessInfo.processInfo.environment
+            AppLog.probes.info("Zai: Claude CLI not found")
+            AppLog.probes.info("Current directory: \(FileManager.default.currentDirectoryPath)")
+            AppLog.probes.info("PATH: \(env["PATH"] ?? "<not set>")")
             return false
         }
 

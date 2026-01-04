@@ -26,10 +26,10 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
         // Log diagnostic info when binary not found
         let env = ProcessInfo.processInfo.environment
         AppLog.probes.error("Claude binary '\(claudeBinary)' not found in PATH")
-        AppLog.probes.debug("Current directory: \(FileManager.default.currentDirectoryPath)")
-        AppLog.probes.debug("PATH: \(env["PATH"] ?? "<not set>")")
+        AppLog.probes.info("Current directory: \(FileManager.default.currentDirectoryPath)")
+        AppLog.probes.info("PATH: \(env["PATH"] ?? "<not set>")")
         if let configDir = env["CLAUDE_CONFIG_DIR"] {
-            AppLog.probes.debug("CLAUDE_CONFIG_DIR: \(configDir)")
+            AppLog.probes.info("CLAUDE_CONFIG_DIR: \(configDir)")
         }
         return false
     }

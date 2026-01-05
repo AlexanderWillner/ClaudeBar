@@ -20,28 +20,31 @@ struct SettingsContentView: View {
     @State private var copilotTokenInput: String = ""
     @State private var showToken: Bool = false
     @State private var saveError: String?
-     @State private var saveSuccess: Bool = false
+    @State private var saveSuccess: Bool = false
+    @State private var copilotIsExpanded: Bool = false
+    @State private var claudeBudgetExpanded: Bool = false
+    @State private var providersExpanded: Bool = false
+    @State private var zaiConfigExpanded: Bool = false
+    @State private var updatesExpanded: Bool = false
 
-     // Budget input state
-     @State private var budgetInput: String = ""
+    // Budget input state
+    @State private var budgetInput: String = ""
 
-     @State private var zaiConfigPathInput: String = ""
-     @State private var glmAuthEnvVarInput: String = ""
-     @State private var copilotAuthEnvVarInput: String = ""
-     @State private var isTestingCopilot = false
-     @State private var copilotTestResult: String?
+    @State private var zaiConfigPathInput: String = ""
+    @State private var glmAuthEnvVarInput: String = ""
+    @State private var copilotAuthEnvVarInput: String = ""
+    @State private var isTestingCopilot = false
+    @State private var copilotTestResult: String?
 
-     /// The Copilot provider from the monitor (cast to CopilotProvider for credential access)
-    private var copilotProvider: CopilotProvider? {
-        monitor.provider(for: "copilot") as? CopilotProvider
+    private enum ProviderID {
+        static let claude = "claude"
+        static let copilot = "copilot"
+        static let zai = "zai"
     }
 
-    /// Binding to the Copilot provider's isEnabled state
-    private var copilotEnabledBinding: Binding<Bool> {
-        Binding(
-            get: { copilotProvider?.isEnabled ?? false },
-            set: { newValue in monitor.setProviderEnabled("copilot", enabled: newValue) }
-        )
+    /// The Copilot provider from the monitor (cast to CopilotProvider for credential access)
+    private var copilotProvider: CopilotProvider? {
+        monitor.provider(for: ProviderID.copilot) as? CopilotProvider
     }
 
     /// Binding to the Copilot provider's username
@@ -50,6 +53,18 @@ struct SettingsContentView: View {
             get: { copilotProvider?.username ?? "" },
             set: { newValue in copilotProvider?.username = newValue }
         )
+    }
+
+    private var isCopilotEnabled: Bool {
+        monitor.provider(for: ProviderID.copilot)?.isEnabled ?? false
+    }
+
+    private var isZaiEnabled: Bool {
+        monitor.provider(for: ProviderID.zai)?.isEnabled ?? false
+    }
+
+    private var isClaudeEnabled: Bool {
+        monitor.provider(for: ProviderID.claude)?.isEnabled ?? false
     }
 
     /// Maximum height for the settings view to ensure it fits on small screens
@@ -72,9 +87,18 @@ struct SettingsContentView: View {
                 VStack(spacing: 12) {
                     themeCard
                     providersCard
-                    claudeBudgetCard
-                    copilotCard
-                    zaiConfigCard
+                    if isClaudeEnabled {
+                        claudeBudgetCard
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
+                    if isCopilotEnabled {
+                        copilotCard
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
+                    if isZaiEnabled {
+                        zaiConfigCard
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
                     #if ENABLE_SPARKLE
                     updatesCard
                     #endif
@@ -166,31 +190,10 @@ struct SettingsContentView: View {
     // MARK: - Providers Card
 
     private var providersCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Header
-            HStack(spacing: 10) {
-                ZStack {
-                    Circle()
-                        .fill(theme.accentGradient)
-                        .frame(width: 32, height: 32)
-
-                    Image(systemName: "cpu")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(.white)
-                }
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Providers")
-                        .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
-                        .foregroundStyle(theme.textPrimary)
-
-                    Text("Enable or disable AI providers")
-                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                        .foregroundStyle(theme.textTertiary)
-                }
-
-                Spacer()
-            }
+        DisclosureGroup(isExpanded: $providersExpanded) {
+            Divider()
+                .background(theme.glassBorder)
+                .padding(.vertical, 12)
 
             // Provider toggles
             VStack(spacing: 8) {
@@ -198,6 +201,8 @@ struct SettingsContentView: View {
                     providerToggleRow(provider: provider)
                 }
             }
+        } label: {
+            providersHeader
         }
         .padding(14)
         .background(
@@ -208,6 +213,32 @@ struct SettingsContentView: View {
                         .stroke(theme.glassBorder, lineWidth: 1)
                 )
         )
+    }
+
+    private var providersHeader: some View {
+        HStack(spacing: 10) {
+            ZStack {
+                Circle()
+                    .fill(theme.accentGradient)
+                    .frame(width: 32, height: 32)
+
+                Image(systemName: "cpu")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(.white)
+            }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Providers")
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
+
+                Text("Enable or disable AI providers")
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
+            }
+
+            Spacer()
+        }
     }
 
     private func providerToggleRow(provider: any AIProvider) -> some View {
@@ -223,7 +254,23 @@ struct SettingsContentView: View {
 
             Toggle("", isOn: Binding(
                 get: { provider.isEnabled },
-                set: { monitor.setProviderEnabled(provider.id, enabled: $0) }
+                set: { newValue in
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        monitor.setProviderEnabled(provider.id, enabled: newValue)
+                        if !newValue {
+                            switch provider.id {
+                            case ProviderID.copilot:
+                                copilotIsExpanded = false
+                            case ProviderID.zai:
+                                zaiConfigExpanded = false
+                            case ProviderID.claude:
+                                claudeBudgetExpanded = false
+                            default:
+                                break
+                            }
+                        }
+                    }
+                }
             ))
             .toggleStyle(.switch)
             .tint(theme.accentPrimary)
@@ -280,18 +327,17 @@ struct SettingsContentView: View {
     // MARK: - Claude Budget Card
 
     private var claudeBudgetCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        DisclosureGroup(isExpanded: $claudeBudgetExpanded) {
+            Divider()
+                .background(theme.glassBorder)
+                .padding(.vertical, 12)
+
+            claudeBudgetForm
+                .disabled(!settings.claudeApiBudgetEnabled)
+                .opacity(settings.claudeApiBudgetEnabled ? 1 : 0.6)
+        } label: {
             // Header row with icon, title, toggle
             claudeBudgetHeader
-
-            // Expandable content
-            if settings.claudeApiBudgetEnabled {
-                Divider()
-                    .background(theme.glassBorder)
-                    .padding(.vertical, 12)
-
-                claudeBudgetForm
-            }
         }
         .padding(14)
         .background(
@@ -406,18 +452,14 @@ struct SettingsContentView: View {
     // MARK: - Copilot Card
 
     private var copilotCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            // Header row with icon, title, toggle
+        DisclosureGroup(isExpanded: $copilotIsExpanded) {
+            Divider()
+                .background(theme.glassBorder)
+                .padding(.vertical, 12)
+
+            copilotForm
+        } label: {
             copilotHeader
-
-            // Expandable content
-            if copilotProvider?.isEnabled == true {
-                Divider()
-                    .background(theme.glassBorder)
-                    .padding(.vertical, 12)
-
-                copilotForm
-            }
         }
         .padding(14)
         .background(
@@ -462,7 +504,7 @@ struct SettingsContentView: View {
             }
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("GitHub Copilot")
+                Text("GitHub Copilot Configuration")
                     .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
                     .foregroundStyle(theme.textPrimary)
 
@@ -472,12 +514,6 @@ struct SettingsContentView: View {
             }
 
             Spacer()
-
-            Toggle("", isOn: copilotEnabledBinding)
-                .toggleStyle(.switch)
-                .tint(theme.accentPrimary)
-                .scaleEffect(0.8)
-                .labelsHidden()
         }
     }
 
@@ -695,132 +731,114 @@ struct SettingsContentView: View {
 
     // MARK: - Z.ai Config Card
 
-    @State private var zaiConfigExpanded: Bool = false
-
     private var zaiConfigCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            // Header (always visible, clickable to expand)
-            Button {
-                withAnimation(.easeInOut(duration: 0.2)) {
-                    zaiConfigExpanded.toggle()
+        DisclosureGroup(isExpanded: $zaiConfigExpanded) {
+            Divider()
+                .background(theme.glassBorder)
+                .padding(.vertical, 12)
+
+            VStack(alignment: .leading, spacing: 14) {
+                // Explanation text
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("TOKEN LOOKUP ORDER")
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
+                        .tracking(0.5)
+
+                    Text("1. First looks for token in the settings.json file")
+                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textTertiary)
+                    Text("2. Falls back to environment variable if not found in file")
+                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textTertiary)
                 }
-            } label: {
-                HStack(spacing: 10) {
-                    ZStack {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        Color(red: 0.2, green: 0.6, blue: 0.9),
-                                        Color(red: 0.15, green: 0.45, blue: 0.8)
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("SETTINGS.JSON PATH")
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
+                        .tracking(0.5)
+
+                    TextField("", text: $zaiConfigPathInput, prompt: Text("~/.claude/settings.json").foregroundStyle(theme.textTertiary))
+                        .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textPrimary)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(theme.glassBackground)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(theme.glassBorder, lineWidth: 1)
                                 )
-                            )
-                            .frame(width: 32, height: 32)
+                        )
+                        .onChange(of: zaiConfigPathInput) { _, newValue in
+                            UserDefaultsProviderSettingsRepository.shared.setZaiConfigPath(newValue)
+                        }
+                }
 
-                        Image(systemName: "gearshape.fill")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundStyle(.white)
-                    }
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("AUTH TOKEN ENV VAR (FALLBACK)")
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
+                        .tracking(0.5)
 
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Z.ai / GLM Configuration")
-                            .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textPrimary)
+                    TextField("", text: $glmAuthEnvVarInput, prompt: Text("GLM_AUTH_TOKEN").foregroundStyle(theme.textTertiary))
+                        .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textPrimary)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(theme.glassBackground)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(theme.glassBorder, lineWidth: 1)
+                                )
+                        )
+                        .onChange(of: glmAuthEnvVarInput) { _, newValue in
+                            UserDefaultsProviderSettingsRepository.shared.setGlmAuthEnvVar(newValue)
+                        }
+                }
 
-                        Text("Authentication fallback settings")
-                            .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                            .foregroundStyle(theme.textTertiary)
-                    }
-
-                    Spacer()
-
-                    // Expand/collapse indicator
-                    Image(systemName: zaiConfigExpanded ? "chevron.up" : "chevron.down")
-                        .font(.system(size: 12, weight: .semibold))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Leave both empty to use default path with no env var fallback")
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
                         .foregroundStyle(theme.textTertiary)
                 }
             }
-            .buttonStyle(.plain)
-
-            // Expanded content
-            if zaiConfigExpanded {
-                Divider()
-                    .background(theme.glassBorder)
-                    .padding(.vertical, 12)
-
-                VStack(alignment: .leading, spacing: 14) {
-                    // Explanation text
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("TOKEN LOOKUP ORDER")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textSecondary)
-                            .tracking(0.5)
-
-                        Text("1. First looks for token in the settings.json file")
-                            .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                            .foregroundStyle(theme.textTertiary)
-                        Text("2. Falls back to environment variable if not found in file")
-                            .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                            .foregroundStyle(theme.textTertiary)
-                    }
-
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("SETTINGS.JSON PATH")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textSecondary)
-                            .tracking(0.5)
-
-                        TextField("", text: $zaiConfigPathInput, prompt: Text("~/.claude/settings.json").foregroundStyle(theme.textTertiary))
-                            .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
-                            .foregroundStyle(theme.textPrimary)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 8)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(theme.glassBackground)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(theme.glassBorder, lineWidth: 1)
-                                    )
+        } label: {
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color(red: 0.2, green: 0.6, blue: 0.9),
+                                    Color(red: 0.15, green: 0.45, blue: 0.8)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
                             )
-                            .onChange(of: zaiConfigPathInput) { _, newValue in
-                                UserDefaultsProviderSettingsRepository.shared.setZaiConfigPath(newValue)
-                            }
-                    }
+                        )
+                        .frame(width: 32, height: 32)
 
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("AUTH TOKEN ENV VAR (FALLBACK)")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textSecondary)
-                            .tracking(0.5)
-
-                        TextField("", text: $glmAuthEnvVarInput, prompt: Text("GLM_AUTH_TOKEN").foregroundStyle(theme.textTertiary))
-                            .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
-                            .foregroundStyle(theme.textPrimary)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 8)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(theme.glassBackground)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(theme.glassBorder, lineWidth: 1)
-                                    )
-                            )
-                    .onChange(of: glmAuthEnvVarInput) { _, newValue in
-                        UserDefaultsProviderSettingsRepository.shared.setGlmAuthEnvVar(newValue)
-                    }
-                    }
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Leave both empty to use default path with no env var fallback")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textTertiary)
-                    }
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.white)
                 }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Z.ai / GLM Configuration")
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
+
+                Text("Authentication fallback settings")
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
+            }
+
+                Spacer()
             }
         }
         .padding(14)
@@ -843,144 +861,114 @@ struct SettingsContentView: View {
 
     // MARK: - Updates Card
 
-    #if ENABLE_SPARKLE
+#if ENABLE_SPARKLE
     private var updatesCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Header
-            HStack(spacing: 10) {
-                ZStack {
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color(red: 0.3, green: 0.7, blue: 0.4),
-                                    Color(red: 0.2, green: 0.55, blue: 0.35)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(width: 32, height: 32)
+        DisclosureGroup(isExpanded: $updatesExpanded) {
+            VStack(alignment: .leading, spacing: 12) {
+                // Show different content based on updater availability
+                if sparkleUpdater?.isAvailable == true {
+                    // Check for Updates Button
+                    Button {
+                        sparkleUpdater?.checkForUpdates()
+                    } label: {
+                        HStack(spacing: 6) {
+                            if sparkleUpdater?.isCheckingForUpdates == true {
+                                ProgressView()
+                                    .scaleEffect(0.6)
+                                    .frame(width: 14, height: 14)
+                            } else {
+                                Image(systemName: "arrow.clockwise")
+                                    .font(.system(size: 11, weight: .semibold))
+                            }
 
-                    Image(systemName: "arrow.down.circle.fill")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(.white)
-                }
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Updates")
-                        .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
-                        .foregroundStyle(theme.textPrimary)
-
-                    Text("Version \(appVersion)")
-                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                        .foregroundStyle(theme.textTertiary)
-                }
-
-                Spacer()
-            }
-
-            // Show different content based on updater availability
-            if sparkleUpdater?.isAvailable == true {
-                // Check for Updates Button
-                Button {
-                    sparkleUpdater?.checkForUpdates()
-                } label: {
-                    HStack(spacing: 6) {
-                        if sparkleUpdater?.isCheckingForUpdates == true {
-                            ProgressView()
-                                .scaleEffect(0.6)
-                                .frame(width: 14, height: 14)
-                        } else {
-                            Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 11, weight: .semibold))
+                            Text(sparkleUpdater?.isCheckingForUpdates == true ? "Checking..." : "Check for Updates")
+                                .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
                         }
-
-                        Text(sparkleUpdater?.isCheckingForUpdates == true ? "Checking..." : "Check for Updates")
-                            .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
-                    }
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .background(
-                        Capsule()
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        Color(red: 0.3, green: 0.7, blue: 0.4),
-                                        Color(red: 0.2, green: 0.55, blue: 0.35)
-                                    ],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            Capsule()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 0.3, green: 0.7, blue: 0.4),
+                                            Color(red: 0.2, green: 0.55, blue: 0.35)
+                                        ],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
                                 )
-                            )
-                    )
-                }
-                .buttonStyle(.plain)
-                .disabled(sparkleUpdater?.canCheckForUpdates != true || sparkleUpdater?.isCheckingForUpdates == true)
-                .opacity(sparkleUpdater?.canCheckForUpdates == true ? 1 : 0.6)
-
-                // Last check info
-                if let lastCheck = sparkleUpdater?.lastUpdateCheckDate {
-                    HStack(spacing: 4) {
-                        Image(systemName: "clock.fill")
-                            .font(.system(size: 8))
-
-                        Text("Last checked: \(lastCheck.formatted(date: .abbreviated, time: .shortened))")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        )
                     }
-                    .foregroundStyle(theme.textTertiary)
-                }
+                    .buttonStyle(.plain)
+                    .disabled(sparkleUpdater?.canCheckForUpdates != true || sparkleUpdater?.isCheckingForUpdates == true)
+                    .opacity(sparkleUpdater?.canCheckForUpdates == true ? 1 : 0.6)
 
-                // Auto updates toggle
-                HStack {
-                    Text("Check automatically")
-                        .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
-                        .foregroundStyle(theme.textPrimary)
+                    // Last check info
+                    if let lastCheck = sparkleUpdater?.lastUpdateCheckDate {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock.fill")
+                                .font(.system(size: 8))
 
-                    Spacer()
+                            Text("Last checked: \(lastCheck.formatted(date: .abbreviated, time: .shortened))")
+                                .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        }
+                        .foregroundStyle(theme.textTertiary)
+                    }
 
-                    Toggle("", isOn: Binding(
-                        get: { sparkleUpdater?.automaticallyChecksForUpdates ?? true },
-                        set: { sparkleUpdater?.automaticallyChecksForUpdates = $0 }
-                    ))
-                    .toggleStyle(.switch)
-                    .tint(theme.accentPrimary)
-                    .scaleEffect(0.8)
-                    .labelsHidden()
-                }
-
-                // Beta updates toggle
-                HStack {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Include beta versions")
+                    // Auto updates toggle
+                    HStack {
+                        Text("Check automatically")
                             .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
                             .foregroundStyle(theme.textPrimary)
 
-                        Text("Get early access to new features")
-                            .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
-                            .foregroundStyle(theme.textTertiary)
-                    }
+                        Spacer()
 
-                    Spacer()
-
-                    Toggle("", isOn: $settings.receiveBetaUpdates)
+                        Toggle("", isOn: Binding(
+                            get: { sparkleUpdater?.automaticallyChecksForUpdates ?? true },
+                            set: { sparkleUpdater?.automaticallyChecksForUpdates = $0 }
+                        ))
                         .toggleStyle(.switch)
                         .tint(theme.accentPrimary)
                         .scaleEffect(0.8)
                         .labelsHidden()
+                    }
+
+                    // Beta updates toggle
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Include beta versions")
+                                .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
+                                .foregroundStyle(theme.textPrimary)
+
+                            Text("Get early access to new features")
+                                .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                                .foregroundStyle(theme.textTertiary)
+                        }
+
+                        Spacer()
+
+                        Toggle("", isOn: $settings.receiveBetaUpdates)
+                            .toggleStyle(.switch)
+                            .tint(theme.accentPrimary)
+                            .scaleEffect(0.8)
+                            .labelsHidden()
+                    }
+                } else {
+                    // Debug mode message
+                    HStack(spacing: 6) {
+                        Image(systemName: "hammer.fill")
+                            .font(.system(size: 10))
+                        Text("Updates unavailable in debug builds")
+                            .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    }
+                    .foregroundStyle(theme.textTertiary)
                 }
-            } else {
-                // Debug mode message
-                HStack(spacing: 6) {
-                    Image(systemName: "hammer.fill")
-                        .font(.system(size: 10))
-                    Text("Updates unavailable in debug builds")
-                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
-                }
-                .foregroundStyle(theme.textTertiary)
             }
+        } label: {
+            updatesHeader
         }
         .padding(14)
         .background(
@@ -998,6 +986,41 @@ struct SettingsContentView: View {
                         )
                 )
         )
+    }
+
+    private var updatesHeader: some View {
+        HStack(spacing: 10) {
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(red: 0.3, green: 0.7, blue: 0.4),
+                                Color(red: 0.2, green: 0.55, blue: 0.35)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: 32, height: 32)
+
+                Image(systemName: "arrow.down.circle.fill")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(.white)
+            }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Updates")
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
+
+                Text("Version \(appVersion)")
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
+            }
+
+            Spacer()
+        }
     }
 
     /// The app version from the bundle
@@ -1163,22 +1186,17 @@ struct SettingsContentView: View {
             copilotTokenInput = ""
         }
 
-        do {
-            // Try to refresh the copilot provider
-            AppLog.credentials.info("Testing Copilot connection via provider refresh")
-            await monitor.refresh(providerId: "copilot")
+        // Try to refresh the copilot provider
+        AppLog.credentials.info("Testing Copilot connection via provider refresh")
+        await monitor.refresh(providerId: ProviderID.copilot)
 
-            // Check if there's an error after refresh
-            if let error = monitor.provider(for: "copilot")?.lastError {
-                AppLog.credentials.error("Copilot connection test failed: \(error.localizedDescription)")
-                copilotTestResult = "Failed: \(error.localizedDescription)"
-            } else {
-                AppLog.credentials.info("Copilot connection test succeeded")
-                copilotTestResult = "Success: Connection verified"
-            }
-        } catch {
-            AppLog.credentials.error("Copilot connection test threw error: \(error.localizedDescription)")
+        // Check if there's an error after refresh
+        if let error = monitor.provider(for: ProviderID.copilot)?.lastError {
+            AppLog.credentials.error("Copilot connection test failed: \(error.localizedDescription)")
             copilotTestResult = "Failed: \(error.localizedDescription)"
+        } else {
+            AppLog.credentials.info("Copilot connection test succeeded")
+            copilotTestResult = "Success: Connection verified"
         }
 
         isTestingCopilot = false

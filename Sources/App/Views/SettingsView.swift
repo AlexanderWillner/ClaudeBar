@@ -219,11 +219,7 @@ struct SettingsContentView: View {
         HStack(spacing: 10) {
             ZStack {
                 Circle()
-                    .fill(
-                        isChristmas
-                            ? AppTheme.christmasAccentGradient
-                            : AppTheme.accentGradient(for: colorScheme)
-                    )
+                    .fill(theme.accentGradient)
                     .frame(width: 32, height: 32)
 
                 Image(systemName: "cpu")
@@ -233,12 +229,12 @@ struct SettingsContentView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Providers")
-                    .font(AppTheme.titleFont(size: 14))
-                    .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
 
                 Text("Enable or disable AI providers")
-                    .font(AppTheme.captionFont(size: 10))
-                    .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
             }
 
             Spacer()
@@ -333,7 +329,7 @@ struct SettingsContentView: View {
     private var claudeBudgetCard: some View {
         DisclosureGroup(isExpanded: $claudeBudgetExpanded) {
             Divider()
-                .background(AppTheme.glassBorder(for: colorScheme))
+                .background(theme.glassBorder)
                 .padding(.vertical, 12)
 
             claudeBudgetForm
@@ -458,7 +454,7 @@ struct SettingsContentView: View {
     private var copilotCard: some View {
         DisclosureGroup(isExpanded: $copilotIsExpanded) {
             Divider()
-                .background(AppTheme.glassBorder(for: colorScheme))
+                .background(theme.glassBorder)
                 .padding(.vertical, 12)
 
             copilotForm
@@ -509,8 +505,8 @@ struct SettingsContentView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("GitHub Copilot Configuration")
-                    .font(AppTheme.titleFont(size: 14))
-                    .foregroundStyle(AppTheme.textPrimary(for: colorScheme))
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
 
                 Text("Premium usage tracking")
                     .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
@@ -738,42 +734,42 @@ struct SettingsContentView: View {
     private var zaiConfigCard: some View {
         DisclosureGroup(isExpanded: $zaiConfigExpanded) {
             Divider()
-                .background(AppTheme.glassBorder(for: colorScheme))
+                .background(theme.glassBorder)
                 .padding(.vertical, 12)
 
             VStack(alignment: .leading, spacing: 14) {
                 // Explanation text
                 VStack(alignment: .leading, spacing: 6) {
                     Text("TOKEN LOOKUP ORDER")
-                        .font(AppTheme.captionFont(size: 9))
-                        .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
                         .tracking(0.5)
 
                     Text("1. First looks for token in the settings.json file")
-                        .font(AppTheme.captionFont(size: 10))
-                        .foregroundStyle(AppTheme.textTertiary(for: colorScheme))
+                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textTertiary)
                     Text("2. Falls back to environment variable if not found in file")
-                        .font(AppTheme.captionFont(size: 10))
-                        .foregroundStyle(AppTheme.textTertiary(for: colorScheme))
+                        .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textTertiary)
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("SETTINGS.JSON PATH")
-                        .font(AppTheme.captionFont(size: 9))
-                        .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
                         .tracking(0.5)
 
-                    TextField("", text: $zaiConfigPathInput, prompt: Text("~/.claude/settings.json").foregroundStyle(AppTheme.textTertiary(for: colorScheme)))
-                        .font(AppTheme.bodyFont(size: 12))
-                        .foregroundStyle(AppTheme.textPrimary(for: colorScheme))
+                    TextField("", text: $zaiConfigPathInput, prompt: Text("~/.claude/settings.json").foregroundStyle(theme.textTertiary))
+                        .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textPrimary)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 8)
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(colorScheme == .dark ? Color.white.opacity(0.1) : Color.white.opacity(0.8))
+                                .fill(theme.glassBackground)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(AppTheme.glassBorder(for: colorScheme), lineWidth: 1)
+                                        .stroke(theme.glassBorder, lineWidth: 1)
                                 )
                         )
                         .onChange(of: zaiConfigPathInput) { _, newValue in
@@ -783,21 +779,21 @@ struct SettingsContentView: View {
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("AUTH TOKEN ENV VAR (FALLBACK)")
-                        .font(AppTheme.captionFont(size: 9))
-                        .foregroundStyle(AppTheme.textSecondary(for: colorScheme))
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textSecondary)
                         .tracking(0.5)
 
-                    TextField("", text: $glmAuthEnvVarInput, prompt: Text("GLM_AUTH_TOKEN").foregroundStyle(AppTheme.textTertiary(for: colorScheme)))
-                        .font(AppTheme.bodyFont(size: 12))
-                        .foregroundStyle(AppTheme.textPrimary(for: colorScheme))
+                    TextField("", text: $glmAuthEnvVarInput, prompt: Text("GLM_AUTH_TOKEN").foregroundStyle(theme.textTertiary))
+                        .font(.system(size: 12, weight: .medium, design: theme.fontDesign))
+                        .foregroundStyle(theme.textPrimary)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 8)
                         .background(
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(colorScheme == .dark ? Color.white.opacity(0.1) : Color.white.opacity(0.8))
+                                .fill(theme.glassBackground)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(AppTheme.glassBorder(for: colorScheme), lineWidth: 1)
+                                        .stroke(theme.glassBorder, lineWidth: 1)
                                 )
                         )
                         .onChange(of: glmAuthEnvVarInput) { _, newValue in
@@ -807,8 +803,8 @@ struct SettingsContentView: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Leave both empty to use default path with no env var fallback")
-                        .font(AppTheme.captionFont(size: 9))
-                        .foregroundStyle(AppTheme.textTertiary(for: colorScheme))
+                        .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                        .foregroundStyle(theme.textTertiary)
                 }
             }
         } label: {
@@ -832,15 +828,15 @@ struct SettingsContentView: View {
                         .foregroundStyle(.white)
                 }
 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Z.ai / GLM Configuration")
-                        .font(AppTheme.titleFont(size: 14))
-                        .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Z.ai / GLM Configuration")
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
 
-                    Text("Authentication fallback settings")
-                        .font(AppTheme.captionFont(size: 10))
-                        .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
-                }
+                Text("Authentication fallback settings")
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
+            }
 
                 Spacer()
             }
@@ -886,7 +882,7 @@ struct SettingsContentView: View {
                             }
 
                             Text(sparkleUpdater?.isCheckingForUpdates == true ? "Checking..." : "Check for Updates")
-                                .font(AppTheme.bodyFont(size: 11))
+                                .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
                         }
                         .foregroundStyle(.white)
                         .padding(.horizontal, 14)
@@ -917,16 +913,16 @@ struct SettingsContentView: View {
                                 .font(.system(size: 8))
 
                             Text("Last checked: \(lastCheck.formatted(date: .abbreviated, time: .shortened))")
-                                .font(AppTheme.captionFont(size: 9))
+                                .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
                         }
-                        .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                        .foregroundStyle(theme.textTertiary)
                     }
 
                     // Auto updates toggle
                     HStack {
                         Text("Check automatically")
-                            .font(AppTheme.bodyFont(size: 11))
-                            .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+                            .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
+                            .foregroundStyle(theme.textPrimary)
 
                         Spacer()
 
@@ -944,19 +940,19 @@ struct SettingsContentView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Include beta versions")
-                                .font(AppTheme.bodyFont(size: 11))
-                                .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+                                .font(.system(size: 11, weight: .medium, design: theme.fontDesign))
+                                .foregroundStyle(theme.textPrimary)
 
                             Text("Get early access to new features")
-                                .font(AppTheme.captionFont(size: 9))
-                                .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                                .font(.system(size: 9, weight: .semibold, design: theme.fontDesign))
+                                .foregroundStyle(theme.textTertiary)
                         }
 
                         Spacer()
 
                         Toggle("", isOn: $settings.receiveBetaUpdates)
                             .toggleStyle(.switch)
-                            .tint(AppTheme.purpleVibrant(for: colorScheme))
+                            .tint(theme.accentPrimary)
                             .scaleEffect(0.8)
                             .labelsHidden()
                     }
@@ -966,9 +962,9 @@ struct SettingsContentView: View {
                         Image(systemName: "hammer.fill")
                             .font(.system(size: 10))
                         Text("Updates unavailable in debug builds")
-                            .font(AppTheme.captionFont(size: 10))
+                            .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
                     }
-                    .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                    .foregroundStyle(theme.textTertiary)
                 }
             }
         } label: {
@@ -1015,12 +1011,12 @@ struct SettingsContentView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Updates")
-                    .font(AppTheme.titleFont(size: 14))
-                    .foregroundStyle(isChristmas ? AppTheme.christmasTextPrimary : AppTheme.textPrimary(for: colorScheme))
+                    .font(.system(size: 14, weight: .bold, design: theme.fontDesign))
+                    .foregroundStyle(theme.textPrimary)
 
                 Text("Version \(appVersion)")
-                    .font(AppTheme.captionFont(size: 10))
-                    .foregroundStyle(isChristmas ? AppTheme.christmasTextTertiary : AppTheme.textTertiary(for: colorScheme))
+                    .font(.system(size: 10, weight: .medium, design: theme.fontDesign))
+                    .foregroundStyle(theme.textTertiary)
             }
 
             Spacer()

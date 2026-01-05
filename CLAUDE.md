@@ -64,10 +64,36 @@ The project follows a **layered architecture** with `QuotaMonitor` as the single
 ### Key Patterns
 
 - **Single Source of Truth** - `QuotaMonitor` owns all provider state
-- **Repository Pattern** - `ProviderSettingsRepository`, `CredentialRepository` for testability
+- **ISP (Interface Segregation)** - Provider-specific repository sub-protocols:
+  - `ProviderSettingsRepository` (base) - `isEnabled` for simple providers
+  - `ZaiSettingsRepository` extends base - adds Z.ai config path + env var
+  - `CopilotSettingsRepository` extends base - adds env var + credentials
+- **SRP (Single Responsibility)** - Each provider owns only its concerns
 - **Protocol-Based DI** - `@Mockable` protocols enable testing without real CLI/network
 - **Chicago School TDD** - Tests verify state changes, not method calls
 - **No ViewModel/AppState** - Views consume `QuotaMonitor` directly
+
+### Repository Protocol Hierarchy (ISP)
+
+```
+ProviderSettingsRepository (base)
+├── isEnabled(), setEnabled()
+│
+├── ZaiSettingsRepository: ProviderSettingsRepository
+│   ├── zaiConfigPath(), setZaiConfigPath()
+│   └── glmAuthEnvVar(), setGlmAuthEnvVar()
+│
+└── CopilotSettingsRepository: ProviderSettingsRepository
+    ├── copilotAuthEnvVar(), setCopilotAuthEnvVar()
+    └── GitHub credentials: save/get/delete token & username
+```
+
+**Provider Dependencies:**
+| Provider | Repository Type |
+|----------|----------------|
+| Claude, Codex, Gemini, Antigravity | `ProviderSettingsRepository` |
+| Z.ai | `ZaiSettingsRepository` |
+| Copilot | `CopilotSettingsRepository` |
 
 ### Adding a New AI Provider
 
@@ -85,13 +111,26 @@ The skill will guide you through:
 4. **Provider Class** → Create `AIProvider` in `Sources/Domain/Provider/`
 5. **Registration** → Add to `ClaudeBarApp.init()` providers array
 
+**Repository Selection (ISP):**
+- **Simple provider** (no special config) → Use base `ProviderSettingsRepository`
+- **Provider with config/credentials** → Create a new sub-protocol extending base
+
+```swift
+// If your provider needs special settings, create a sub-protocol:
+public protocol MyProviderSettingsRepository: ProviderSettingsRepository {
+    func mySpecialConfig() -> String
+    func setMySpecialConfig(_ value: String)
+}
+
+// Then add implementation to UserDefaultsProviderSettingsRepository
+```
+
 **Skill location:** `.claude/skills/add-provider/SKILL.md`
 
-**Reference implementation:** See `AntigravityUsageProbe` for a complete example of:
-- Local process detection via `ps` and `lsof`
-- CSRF token extraction from process args
-- Local API calls with self-signed cert handling
-- Parsing JSON responses to `UsageSnapshot` with `UsageQuota` array
+**Reference implementations:**
+- `AntigravityProvider` - Simple provider using base `ProviderSettingsRepository`
+- `ZaiProvider` - Extended with `ZaiSettingsRepository` for config path
+- `CopilotProvider` - Extended with `CopilotSettingsRepository` for config + credentials
 
 ## Assets
 

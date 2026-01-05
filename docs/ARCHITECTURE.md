@@ -49,9 +49,12 @@ The key principle is **QuotaMonitor as Single Source of Truth** - all provider s
 │  ├── isSyncing: Bool                                                │
 │  └── refresh() async throws -> UsageSnapshot                        │
 │                                                                      │
-│  Repository Protocols (Injected Dependencies)                        │
-│  ├── ProviderSettingsRepository - persists isEnabled state          │
-│  └── CredentialRepository - stores tokens/credentials               │
+│  Repository Protocols (ISP - Interface Segregation Principle)        │
+│  ├── ProviderSettingsRepository - base: isEnabled state             │
+│  ├── ZaiSettingsRepository: ProviderSettingsRepository              │
+│  │   └── Z.ai specific: configPath, glmAuthEnvVar                   │
+│  └── CopilotSettingsRepository: ProviderSettingsRepository          │
+│      └── Copilot specific: authEnvVar + credentials (token/user)    │
 │                                                                      │
 │  Domain Models                                                       │
 │  ├── UsageSnapshot - point-in-time quota data                       │
@@ -75,8 +78,8 @@ The key principle is **QuotaMonitor as Single Source of Truth** - all provider s
 │                                                                      │
 │  Storage (Sources/Infrastructure/Storage/)                          │
 │  ├── AIProviders - implements AIProviderRepository                  │
-│  ├── UserDefaultsProviderSettingsRepository                         │
-│  └── UserDefaultsCredentialRepository                               │
+│  └── UserDefaultsProviderSettingsRepository                         │
+│      └── Implements all sub-protocols (ISP single implementation)   │
 │                                                                      │
 │  Adapters (Sources/Infrastructure/Adapters/) - excluded from coverage│
 │  ├── PTYCommandRunner - runs CLI with PTY                           │
@@ -141,23 +144,52 @@ public actor QuotaMonitor {
 }
 ```
 
-### 3. Repository Pattern
+### 3. Repository Pattern with ISP (Interface Segregation Principle)
 
-Settings and credentials are abstracted behind protocols for testability.
+Settings are abstracted behind **provider-specific sub-protocols** following ISP:
 
 ```swift
-// Domain defines protocol
+// Base protocol - shared by all providers
 @Mockable
 public protocol ProviderSettingsRepository: Sendable {
     func isEnabled(forProvider id: String, defaultValue: Bool) -> Bool
     func setEnabled(_ enabled: Bool, forProvider id: String)
 }
 
-// Infrastructure provides implementation
-public final class UserDefaultsProviderSettingsRepository: ProviderSettingsRepository {
+// Z.ai-specific protocol - extends base with Z.ai config
+public protocol ZaiSettingsRepository: ProviderSettingsRepository {
+    func zaiConfigPath() -> String
+    func setZaiConfigPath(_ path: String)
+    func glmAuthEnvVar() -> String
+    func setGlmAuthEnvVar(_ envVar: String)
+}
+
+// Copilot-specific protocol - extends base with config + credentials
+public protocol CopilotSettingsRepository: ProviderSettingsRepository {
+    func copilotAuthEnvVar() -> String
+    func setCopilotAuthEnvVar(_ envVar: String)
+    // Credentials (merged per SRP - Copilot owns its credentials)
+    func saveGithubToken(_ token: String)
+    func getGithubToken() -> String?
+    func hasGithubToken() -> Bool
+    func saveGithubUsername(_ username: String)
+    func getGithubUsername() -> String?
+}
+
+// Single infrastructure implementation for all protocols
+public final class UserDefaultsProviderSettingsRepository:
+    ZaiSettingsRepository,
+    CopilotSettingsRepository {
     // Persists to UserDefaults
 }
 ```
+
+**Why ISP?**
+- Each provider depends **only** on its specific interface
+- Simple providers (Claude, Codex, Gemini) use base `ProviderSettingsRepository`
+- Z.ai uses `ZaiSettingsRepository` (config path + env var)
+- Copilot uses `CopilotSettingsRepository` (env var + credentials)
+- No provider sees methods it doesn't need
 
 ### 4. Protocol-Based Dependency Injection
 
@@ -170,11 +202,15 @@ public protocol UsageProbe: Sendable {
     func isAvailable() async -> Bool
 }
 
-// Providers receive probes via injection
+// Simple providers receive base settingsRepository
 public init(probe: any UsageProbe, settingsRepository: any ProviderSettingsRepository) {
     self.probe = probe
     self.settingsRepository = settingsRepository
 }
+
+// Specialized providers receive their specific repository
+public init(probe: any UsageProbe, settingsRepository: any ZaiSettingsRepository) { ... }
+public init(probe: any UsageProbe, settingsRepository: any CopilotSettingsRepository) { ... }
 ```
 
 ### 5. No ViewModel/AppState Layer
@@ -274,9 +310,9 @@ Sources/
 │   │   ├── AIProvider.swift         # Protocol
 │   │   ├── AIProviders.swift        # Repository protocol
 │   │   ├── ClaudeProvider.swift     # Rich domain model
-│   │   ├── CopilotProvider.swift    # With credential management
-│   │   ├── ProviderSettingsRepository.swift
-│   │   ├── CredentialRepository.swift
+│   │   ├── CopilotProvider.swift    # Uses CopilotSettingsRepository
+│   │   ├── ZaiProvider.swift        # Uses ZaiSettingsRepository
+│   │   ├── ProviderSettingsRepository.swift  # ISP protocols hierarchy
 │   │   ├── UsageProbe.swift
 │   │   ├── UsageQuota.swift
 │   │   ├── UsageSnapshot.swift

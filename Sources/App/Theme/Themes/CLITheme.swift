@@ -52,8 +52,8 @@ public struct CLITheme: AppThemeProvider {
     public var glassBorder: Color { cliDarkGray }
     public var glassHighlight: Color { cliGray.opacity(0.3) }
 
-    public var cardCornerRadius: CGFloat { 6 }
-    public var pillCornerRadius: CGFloat { 4 }
+    public var cardCornerRadius: CGFloat { 8 }   // Match original CLI
+    public var pillCornerRadius: CGFloat { 8 }   // Match original CLI
 
     // MARK: - Typography
 

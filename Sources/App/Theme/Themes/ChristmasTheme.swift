@@ -11,6 +11,7 @@ public struct ChristmasTheme: AppThemeProvider {
     public let displayName = "Christmas"
     public let icon = "snowflake"
     public let subtitle: String? = "Festive"
+    public let statusBarIconName: String? = "snowflake"
 
     // MARK: - Christmas-Specific Colors
     

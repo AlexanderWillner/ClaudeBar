@@ -12,6 +12,7 @@ public struct CLITheme: AppThemeProvider {
     public let displayName = "CLI"
     public let icon = "terminal.fill"
     public let subtitle: String? = "Terminal"
+    public let statusBarIconName: String? = "terminal.fill"
 
     // MARK: - CLI-Specific Colors
 

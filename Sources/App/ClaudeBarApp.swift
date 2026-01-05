@@ -82,24 +82,19 @@ struct ClaudeBarApp: App {
             #endif
         } label: {
             // Show overall status (worst across all enabled providers) in menu bar
-            StatusBarIcon(status: monitor.overallStatus, themeModeId: settings.themeMode)
+            StatusBarIcon(status: monitor.overallStatus)
+                .appThemeProvider(themeModeId: settings.themeMode)
         }
         .menuBarExtraStyle(.window)
     }
 }
 
-/// The menu bar icon that reflects the overall quota status
+/// The menu bar icon that reflects the overall quota status.
+/// Uses theme's `statusBarIconName` if set, otherwise shows status-based icons.
 struct StatusBarIcon: View {
     let status: QuotaStatus
-    var themeModeId: String = "system"
 
-    private var isChristmas: Bool {
-        themeModeId == "christmas"
-    }
-
-    private var isCLI: Bool {
-        themeModeId == "cli"
-    }
+    @Environment(\.appTheme) private var theme
 
     var body: some View {
         Image(systemName: iconName)
@@ -108,26 +103,23 @@ struct StatusBarIcon: View {
     }
 
     private var iconName: String {
-        if isChristmas {
-            return "snowflake"
+        // Use theme's custom icon if provided
+        if let themeIcon = theme.statusBarIconName {
+            return themeIcon
         }
-        if isCLI {
-            return "terminal.fill"
-        }
+        // Otherwise use status-based icon
         switch status {
         case .depleted:
             return "chart.bar.xaxis"
         case .critical:
             return "exclamationmark.triangle.fill"
-        case .warning:
-            return "chart.bar.fill"
-        case .healthy:
+        case .warning, .healthy:
             return "chart.bar.fill"
         }
     }
 
     private var iconColor: Color {
-        return status.displayColor
+        theme.statusColor(for: status)
     }
 }
 
@@ -160,13 +152,15 @@ struct StatusBarIcon: View {
                 .foregroundStyle(.red)
         }
         VStack {
-            StatusBarIcon(status: .healthy, themeModeId: "cli")
+            StatusBarIcon(status: .healthy)
+                .appThemeProvider(themeModeId: "cli")
             Text("CLI")
                 .font(.caption)
                 .foregroundStyle(CLITheme().accentPrimary)
         }
         VStack {
-            StatusBarIcon(status: .healthy, themeModeId: "christmas")
+            StatusBarIcon(status: .healthy)
+                .appThemeProvider(themeModeId: "christmas")
             Text("CHRISTMAS")
                 .font(.caption)
                 .foregroundStyle(ChristmasTheme().accentPrimary)

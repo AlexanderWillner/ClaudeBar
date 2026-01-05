@@ -35,6 +35,9 @@ public protocol AppThemeProvider {
     /// Optional subtitle shown below the display name (e.g., "Terminal", "Festive")
     var subtitle: String? { get }
 
+    /// SF Symbol icon for the menu bar. If nil, uses status-based icons.
+    var statusBarIconName: String? { get }
+
     // MARK: - Background
 
     /// Main background gradient for the app
@@ -138,6 +141,9 @@ public protocol AppThemeProvider {
 public extension AppThemeProvider {
     /// Default subtitle is nil
     var subtitle: String? { nil }
+
+    /// Default status bar icon is nil (uses status-based icons)
+    var statusBarIconName: String? { nil }
 
     /// Default overlay is nil
     @MainActor var overlayView: AnyView? { nil }

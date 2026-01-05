@@ -64,11 +64,15 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
         let snapshot: UsageSnapshot
         do {
             snapshot = try parseClaudeOutput(usageResult.output)
+        } catch ProbeError.subscriptionRequired {
+            // API Usage Billing accounts don't support /usage, try /cost instead
+            AppLog.probes.info("Account requires /cost command, falling back...")
+            return try await probeCost(workingDir: workingDir)
         } catch {
             AppLog.probes.debug("Working directory: \(workingDir.path)")
             throw error
         }
-        
+
         AppLog.probes.info("Claude probe success: accountTier=\(snapshot.accountTier?.badgeText ?? "unknown"), quotas=\(snapshot.quotas.count)")
         for quota in snapshot.quotas {
             AppLog.probes.info("  - \(quota.quotaType.displayName): \(Int(quota.percentRemaining))% remaining")
@@ -80,12 +84,149 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
         return snapshot
     }
 
+    /// Probes using /cost command for API Usage Billing accounts
+    private func probeCost(workingDir: URL) async throws -> UsageSnapshot {
+        AppLog.probes.info("Starting Claude probe with /cost command...")
+
+        let costResult: CLIResult
+        do {
+            costResult = try cliExecutor.execute(
+                binary: claudeBinary,
+                args: ["/cost", "--allowed-tools", ""],
+                input: "",
+                timeout: timeout,
+                workingDirectory: workingDir,
+                autoResponses: [
+                    "Esc to cancel": "\r",
+                    "Ready to code here?": "\r",
+                    "Press Enter to continue": "\r",
+                    "ctrl+t to disable": "\r",
+                ]
+            )
+        } catch {
+            AppLog.probes.error("Claude /cost probe failed: \(error.localizedDescription)")
+            throw ProbeError.executionFailed(error.localizedDescription)
+        }
+
+        AppLog.probes.info("Claude /cost output:\n\(costResult.output)")
+
+        let snapshot = try parseCostOutput(costResult.output)
+
+        AppLog.probes.info("Claude /cost probe success: cost=\(snapshot.costUsage?.formattedCost ?? "N/A")")
+
+        return snapshot
+    }
+
     // MARK: - Parsing
 
     /// Parses Claude CLI /usage output into a UsageSnapshot (for testing)
     public static func parse(_ text: String) throws -> UsageSnapshot {
         let probe = ClaudeUsageProbe()
         return try probe.parseClaudeOutput(text)
+    }
+
+    /// Parses Claude CLI /cost output into a UsageSnapshot (for testing)
+    public static func parseCost(_ text: String) throws -> UsageSnapshot {
+        let probe = ClaudeUsageProbe()
+        return try probe.parseCostOutput(text)
+    }
+
+    /// Parses /cost command output for API Usage Billing accounts.
+    /// Format:
+    /// ```
+    /// Total cost:            $0.55
+    /// Total duration (API):  6m 19.7s
+    /// Total duration (wall): 6h 33m 10.2s
+    /// Total code changes:    0 lines added, 0 lines removed
+    /// ```
+    internal func parseCostOutput(_ text: String) throws -> UsageSnapshot {
+        let clean = stripANSICodes(text)
+
+        // Extract total cost: "$0.55" or "0.55"
+        guard let cost = extractCostValue(clean) else {
+            AppLog.probes.error("Claude /cost parse failed: could not find 'Total cost' in output")
+            AppLog.probes.debug("Raw output: \(clean)")
+            throw ProbeError.parseFailed("Could not find total cost")
+        }
+
+        // Extract API duration in seconds
+        let apiDuration = extractApiDuration(clean)
+
+        let costUsage = CostUsage(
+            totalCost: cost,
+            budget: nil,
+            apiDuration: apiDuration,
+            providerId: "claude",
+            capturedAt: Date(),
+            resetsAt: nil,
+            resetText: nil
+        )
+
+        return UsageSnapshot(
+            providerId: "claude",
+            quotas: [],
+            capturedAt: Date(),
+            accountEmail: nil,
+            accountOrganization: nil,
+            loginMethod: nil,
+            accountTier: .claudeApi,
+            costUsage: costUsage
+        )
+    }
+
+    /// Extracts the total cost value from /cost output
+    /// Looks for "Total cost:" followed by a dollar amount
+    internal func extractCostValue(_ text: String) -> Decimal? {
+        // Pattern: "Total cost:" followed by optional whitespace and "$X.XX"
+        let pattern = #"total\s+cost:\s*\$?([\d,]+\.?\d*)"#
+        guard let match = extractFirst(pattern: pattern, text: text) else {
+            return nil
+        }
+        let cleanValue = match.replacingOccurrences(of: ",", with: "")
+        return Decimal(string: cleanValue)
+    }
+
+    /// Extracts the API duration in seconds from /cost output
+    /// Looks for "Total duration (API):" followed by a time string like "6m 19.7s"
+    internal func extractApiDuration(_ text: String) -> TimeInterval {
+        // Find the API duration line
+        let pattern = #"total\s+duration\s*\(api\):\s*(.+?)(?:\n|$)"#
+        guard let durationStr = extractFirst(pattern: pattern, text: text) else {
+            return 0
+        }
+
+        return parseDurationString(durationStr)
+    }
+
+    /// Parses a duration string like "6m 19.7s" or "2h 30m 15s" into seconds
+    internal func parseDurationString(_ text: String) -> TimeInterval {
+        var totalSeconds: TimeInterval = 0
+
+        // Extract hours
+        if let hourMatch = text.range(of: #"(\d+(?:\.\d+)?)\s*h"#, options: [.regularExpression, .caseInsensitive]) {
+            let hourStr = String(text[hourMatch]).filter { $0.isNumber || $0 == "." }
+            if let hours = Double(hourStr) {
+                totalSeconds += hours * 3600
+            }
+        }
+
+        // Extract minutes
+        if let minMatch = text.range(of: #"(\d+(?:\.\d+)?)\s*m(?!s)"#, options: [.regularExpression, .caseInsensitive]) {
+            let minStr = String(text[minMatch]).filter { $0.isNumber || $0 == "." }
+            if let minutes = Double(minStr) {
+                totalSeconds += minutes * 60
+            }
+        }
+
+        // Extract seconds
+        if let secMatch = text.range(of: #"(\d+(?:\.\d+)?)\s*s"#, options: [.regularExpression, .caseInsensitive]) {
+            let secStr = String(text[secMatch]).filter { $0.isNumber || $0 == "." }
+            if let seconds = Double(secStr) {
+                totalSeconds += seconds
+            }
+        }
+
+        return totalSeconds
     }
 
     private func parseClaudeOutput(_ text: String) throws -> UsageSnapshot {
@@ -187,6 +328,12 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
         if lower.contains("· claude max") || lower.contains("·claude max") {
             AppLog.probes.info("Detected Claude Max account from header")
             return .claudeMax
+        }
+
+        // Check for API Usage Billing in header (e.g., "Sonnet 4.5 · API Usage Billing")
+        if lower.contains("api usage billing") {
+            AppLog.probes.info("Detected API Usage Billing account from header")
+            return .claudeApi
         }
 
         // Check for Claude API (unlikely in /usage, but check anyway)
@@ -452,6 +599,13 @@ public final class ClaudeUsageProbe: UsageProbe, @unchecked Sendable {
 
     internal func extractUsageError(_ text: String) -> ProbeError? {
         let lower = text.lowercased()
+
+        // Check for API billing accounts that don't support /usage
+        if lower.contains("/usage is only available for subscription plans") ||
+           lower.contains("only available for subscription") {
+            AppLog.probes.info("Claude probe: /usage not available for API billing account")
+            return .subscriptionRequired
+        }
 
         if lower.contains("do you trust the files in this folder?"), !lower.contains("current session") {
             AppLog.probes.error("Claude probe blocked: folder trust required")

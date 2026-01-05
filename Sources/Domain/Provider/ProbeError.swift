@@ -25,4 +25,7 @@ public enum ProbeError: Error, Equatable, Sendable {
 
     /// Command execution failed
     case executionFailed(String)
+
+    /// Usage data requires a subscription plan (API billing accounts don't support /usage)
+    case subscriptionRequired
 }

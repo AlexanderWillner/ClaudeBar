@@ -192,4 +192,71 @@ struct UserDefaultsProviderSettingsRepositoryTests {
         repository.setClaudeCliFallbackEnabled(false)
         #expect(repository.claudeCliFallbackEnabled() == false)
     }
+
+    // MARK: - Mistral Settings
+
+    @Test
+    func `mistralProbeMode defaults to localLogs`() {
+        let repository = makeRepository()
+        defer { cleanupDefaults() }
+
+        #expect(repository.mistralProbeMode() == .localLogs)
+    }
+
+    @Test
+    func `setMistralProbeMode persists value`() {
+        let repository = makeRepository()
+        defer { cleanupDefaults() }
+
+        repository.setMistralProbeMode(.api)
+        #expect(repository.mistralProbeMode() == .api)
+
+        repository.setMistralProbeMode(.localLogs)
+        #expect(repository.mistralProbeMode() == .localLogs)
+    }
+
+    @Test
+    func `mistralProbeMode returns localLogs for unknown string`() {
+        let defaults = UserDefaults(suiteName: testSuiteName)!
+        defer { cleanupDefaults() }
+        defaults.set("unknown_mode", forKey: "providerConfig.mistralProbeMode")
+
+        let repository = UserDefaultsProviderSettingsRepository(userDefaults: defaults)
+        #expect(repository.mistralProbeMode() == .localLogs)
+    }
+
+    @Test
+    func `mistralChatAuthEnvVar defaults to empty string`() {
+        let repository = makeRepository()
+        defer { cleanupDefaults() }
+
+        #expect(repository.mistralChatAuthEnvVar() == "")
+    }
+
+    @Test
+    func `setMistralChatAuthEnvVar persists value`() {
+        let repository = makeRepository()
+        defer { cleanupDefaults() }
+
+        repository.setMistralChatAuthEnvVar("CUSTOM_ENV")
+        #expect(repository.mistralChatAuthEnvVar() == "CUSTOM_ENV")
+    }
+
+    @Test
+    func `mistralChatCookie methods work as expected`() {
+        let repository = makeRepository()
+        defer { cleanupDefaults() }
+
+        #expect(repository.getMistralChatCookie() == nil)
+        #expect(repository.hasMistralChatCookie() == false)
+
+        repository.saveMistralChatCookie("session=abc123xyz")
+        #expect(repository.getMistralChatCookie() == "session=abc123xyz")
+        #expect(repository.hasMistralChatCookie() == true)
+
+        repository.deleteMistralChatCookie()
+        #expect(repository.getMistralChatCookie() == nil)
+        #expect(repository.hasMistralChatCookie() == false)
+    }
 }
+

@@ -364,4 +364,61 @@ struct JSONSettingsRepositoryProviderTests {
         #expect(repo.minimaxRegion() == .international)
     }
 
+    // MARK: - Mistral Settings
+
+    @Test
+    func `mistralProbeMode defaults to localLogs`() {
+        let (repo, dir) = makeRepository()
+        defer { cleanup(dir) }
+
+        #expect(repo.mistralProbeMode() == .localLogs)
+    }
+
+    @Test
+    func `setMistralProbeMode persists value`() {
+        let (repo, dir) = makeRepository()
+        defer { cleanup(dir) }
+
+        repo.setMistralProbeMode(.api)
+        #expect(repo.mistralProbeMode() == .api)
+
+        repo.setMistralProbeMode(.localLogs)
+        #expect(repo.mistralProbeMode() == .localLogs)
+    }
+
+    @Test
+    func `mistralChatAuthEnvVar defaults to empty string`() {
+        let (repo, dir) = makeRepository()
+        defer { cleanup(dir) }
+
+        #expect(repo.mistralChatAuthEnvVar() == "")
+    }
+
+    @Test
+    func `setMistralChatAuthEnvVar persists value`() {
+        let (repo, dir) = makeRepository()
+        defer { cleanup(dir) }
+
+        repo.setMistralChatAuthEnvVar("CUSTOM_COOKIE_VAR")
+        #expect(repo.mistralChatAuthEnvVar() == "CUSTOM_COOKIE_VAR")
+    }
+
+    @Test
+    func `mistralChatCookie methods work as expected`() {
+        let (repo, dir) = makeRepository()
+        defer { cleanup(dir) }
+
+        #expect(repo.getMistralChatCookie() == nil)
+        #expect(repo.hasMistralChatCookie() == false)
+
+        repo.saveMistralChatCookie("session=xyz123")
+        #expect(repo.getMistralChatCookie() == "session=xyz123")
+        #expect(repo.hasMistralChatCookie() == true)
+
+        repo.deleteMistralChatCookie()
+        #expect(repo.getMistralChatCookie() == nil)
+        #expect(repo.hasMistralChatCookie() == false)
+    }
+
 }
+
